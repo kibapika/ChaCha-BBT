@@ -1,5 +1,6 @@
 <script setup>
 // import HelloWorld from './components/HelloWorld.vue'
+import social from './components/SocialNav.vue'
 </script>
 
 <template>
@@ -16,7 +17,8 @@
     <RouterView />
   </main>
   <footer>
-    <h3>
+    <social class="social" />
+    <h3 class="footer-privacy">
       © 2024 Cha-Cha. All Rights Reserved. |
       <RouterLink to="/privacy-policy">Privacy Policy</RouterLink>
     </h3>
@@ -34,9 +36,21 @@ header {
 
 footer {
   display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: space-around;
+}
+
+.social {
+  width: 25dvw;
+  display: flex;
   flex-direction: row;
   place-items: center;
-  justify-content: center;
+  justify-content: space-around;
+}
+
+.footer-privacy {
+  line-height: 1.5;
 }
 
 @media (min-width: 1024px) {
@@ -44,7 +58,7 @@ footer {
     height: 10%;
   }
   footer {
-    height: 10%;
+    height: 15%;
   }
 
   main {
