@@ -1,26 +1,46 @@
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue'
-import social from './components/SocialNav.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const scrollToAbout = () => {
+  const aboutSection = document.getElementById('about')
+  if (aboutSection) {
+    const offset = document.querySelector('header').offsetHeight
+    window.scrollTo({
+      top: aboutSection.offsetTop - offset,
+      behavior: 'smooth'
+    })
+    router.push({ hash: '#about' })
+  }
+}
+
+const redirectToAbout = () => {
+  router.push('/#about');
+  console.log("hello") // Navigate to the 'home' route with hash '#about'
+  scrollToAbout(); // Call the scrolling function'
+  console.log("bye")
+};
 </script>
 
 <template>
   <header>
-    <RouterLink to="/home"><h1>Cha-Cha</h1></RouterLink>
+    <router-link to="/home"><h1>Cha-Cha</h1></router-link>
     <nav>
-      <RouterLink to="/menu">Menu</RouterLink>
-      <RouterLink to="/about">Our Story</RouterLink>
-      <RouterLink to="/location">Visit Us</RouterLink>
-      <RouterLink to="/contact">Contact</RouterLink>
+      <router-link to="/menu">Menu</router-link>
+      <a href="#about" @click="redirectToAbout" @click.prevent="scrollToAbout">Our Story</a>
+      <router-link to="/location">Visit Us</router-link>
+      <router-link to="/contact">Contact</router-link>
     </nav>
   </header>
   <main>
-    <RouterView />
+    <router-view />
   </main>
   <footer>
     <social class="social" />
     <h3 class="footer-privacy">
       © 2024 Cha-Cha. All Rights Reserved. |
-      <RouterLink to="/privacy-policy">Privacy Policy</RouterLink>
+      <router-link to="/privacy-policy">Privacy Policy</router-link>
     </h3>
   </footer>
 </template>

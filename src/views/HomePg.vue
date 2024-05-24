@@ -1,17 +1,26 @@
 <script setup>
-// import video form '../assets/teaVid.mp4';
 import video from '../assets/teaVid.mp4'
+import about from '../views/AboutPg.vue'
 </script>
 
 <template>
-  <div class="homepage-video">
+  <section class="homepage-video">
     <video width="100%" muted loop autoplay>
       <source :src="video" type="video/mp4" />
     </video>
     <div class="text-over-video">
       <h1>Welcome to ChaCha</h1>
     </div>
-  </div>
+  </section>
+  <section id="about">
+    <about />
+  </section>
+  <section>
+    <h1>Delicious Tea</h1>
+    <div>
+      <h2>Milk Tea</h2>
+    </div>
+  </section>
 </template>
 
 <style scoped>

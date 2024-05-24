@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/HomePg.vue'
-import About from '../views/AboutPg.vue'
+// import About from '../views/AboutPg.vue'
 import Menu from '../views/MenuPg.vue'
 import Contact from '../views/ContactPg.vue'
 import Location from '../views/LocationPg.vue'
@@ -24,11 +24,11 @@ const routes = [
     name: 'Menu',
     component: Menu
   },
-  {
-    path: '/about',
-    name: 'About',
-    component: About
-  },
+  // {
+  //   path: '/about',
+  //   name: 'About',
+  //   component: About
+  // },
   {
     path: '/contact',
     name: 'Contact',
@@ -43,12 +43,12 @@ const routes = [
     path: '/privacy-policy',
     name: 'Privacy-Policy',
     component: Privacy
-  },
+  }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 export default router
