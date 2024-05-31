@@ -13,6 +13,24 @@ import teaSec from '../views/TeaSec.vue'
       <h1 id="hometitle">Welcome to ChaCha</h1>
     </div>
   </section>
+  <section class="wrapper">
+    <div class="marquee">
+      <p>
+        [Breaking News] Soft Opening Day June 24 , 2024 ~ For more info, check out later this month!
+        Thank you for all the support and can't wait to see everyone~
+        <v-icon hover scale="1.25" animation="float" name="bi-heart" />
+        <v-icon hover scale="1.25" animation="float" name="ri-bear-smile-line" />
+        <v-icon hover scale="1.25" animation="float" name="bi-heart" />
+      </p>
+      <p>
+        [Breaking News] Soft Opening Day June 24 , 2024 ~ For more info, check out later this month!
+        Thank you for all the support and can't wait to see everyone~
+        <v-icon hover scale="1.25" animation="float" name="bi-heart" />
+        <v-icon hover scale="1.25" animation="float" name="ri-bear-smile-line" />
+        <v-icon hover scale="1.25" animation="float" name="bi-heart" />
+      </p>
+    </div>
+  </section>
   <section id="about">
     <about />
   </section>
@@ -44,5 +62,33 @@ import teaSec from '../views/TeaSec.vue'
   transform: translate(-50%, -50%);
   text-align: center;
   color: black;
+}
+
+.wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+  margin-top: 15px;
+}
+
+.marquee p {
+  display: inline-block;
+  font-size: 23px;
+  letter-spacing: 1px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 </style>

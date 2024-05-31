@@ -37,8 +37,8 @@ import tea from '../assets/tea.jpg'
 }
 
 #container {
-  margin-top: 2.25rem;
-  margin-bottom: 2.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   width: 85%;
   position: relative;
 }

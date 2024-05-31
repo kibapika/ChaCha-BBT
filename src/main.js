@@ -16,9 +16,9 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import { OhVueIcon, addIcons } from 'oh-vue-icons';
-import { BiFacebook, BiTwitter, BiInstagram, BiTiktok, HiMail } from "oh-vue-icons/icons";
+import { BiFacebook, BiTwitter, BiInstagram, BiTiktok, HiMail,RiBearSmileLine, BiHeart } from "oh-vue-icons/icons";
 
-addIcons(BiFacebook, BiTwitter, BiInstagram, BiTiktok, HiMail);
+addIcons(BiFacebook, BiTwitter, BiInstagram, BiTiktok, HiMail, RiBearSmileLine, BiHeart);
 
 const app = createApp(App);
 
