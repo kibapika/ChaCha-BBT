@@ -11,10 +11,8 @@ import tea from '../assets/tea.jpg'
         <p class="text">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, eius officia. Eaque
           similique qui ducimus, iusto est nulla, beatae a quidem ad facilis dolores repudiandae hic
-          optio modi id quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />Lorem
-          ipsum, dolor sit amet consectetur adipisicing elit. Fuga aut cumque repellendus, neque
-          maiores laborum accusamus in temporibus atque minus sint et incidunt harum ex omnis
-          numquam impedit voluptatibus sapiente. elit.
+          optio modi id quos. <br /><br />
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores temporibus modi esse quidem!
         </p>
       </section>
     </div>
@@ -59,8 +57,8 @@ import tea from '../assets/tea.jpg'
 }
 
 .title {
-    font-weight: bolder;
-    line-height: 2;
-    font-size: 23px;
+  font-weight: bolder;
+  line-height: 2;
+  font-size: 23px;
 }
 </style>

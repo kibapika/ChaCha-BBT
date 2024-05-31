@@ -1,6 +1,7 @@
 <script setup>
 import video from '../assets/teaVid.mp4'
 import about from '../views/AboutPg.vue'
+import teaSec from '../views/TeaSec.vue'
 </script>
 
 <template>
@@ -9,21 +10,23 @@ import about from '../views/AboutPg.vue'
       <source :src="video" type="video/mp4" />
     </video>
     <div class="text-over-video">
-      <h1>Welcome to ChaCha</h1>
+      <h1 id="hometitle">Welcome to ChaCha</h1>
     </div>
   </section>
   <section id="about">
     <about />
   </section>
-  <section>
-    <h1>Delicious Tea</h1>
-    <div>
-      <h2>Milk Tea</h2>
-    </div>
-  </section>
+  <teaSec />
 </template>
 
 <style scoped>
+#hometitle {
+  font-size: 55px;
+  font-weight: bold;
+  color: white;
+  -webkit-text-stroke: 2px black;
+}
+
 .homepage-video,
 .homepage-video video {
   position: relative;
