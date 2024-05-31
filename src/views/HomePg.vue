@@ -9,9 +9,7 @@ import teaSec from '../views/TeaSec.vue'
     <video width="100%" muted loop autoplay>
       <source :src="video" type="video/mp4" />
     </video>
-    <div class="text-over-video">
-      <h1 id="hometitle">Welcome to ChaCha</h1>
-    </div>
+    <h1 class="text-over-video" id="hometitle">Welcome to ChaCha</h1>
   </section>
   <section class="wrapper">
     <div class="marquee">
