@@ -1,5 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import social from './components/SocialNav.vue'
 
 const router = useRouter()
 
@@ -16,11 +17,11 @@ const scrollToAbout = () => {
 }
 
 const redirectToAbout = () => {
-  router.push('/#about');
-  console.log("hello") // Navigate to the 'home' route with hash '#about'
-  scrollToAbout(); // Call the scrolling function'
-  console.log("bye")
-};
+  router.push('/#about')
+  console.log('hello') // Navigate to the 'home' route with hash '#about'
+  scrollToAbout() // Call the scrolling function'
+  console.log('bye')
+}
 </script>
 
 <template>
@@ -78,7 +79,7 @@ footer {
     height: 10%;
   }
   footer {
-    height: 15%;
+    height: 10%;
   }
 
   main {

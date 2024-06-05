@@ -13,10 +13,10 @@
 <style scoped>
 .icon {
   cursor: pointer;
-  color: white;
+  color: #403d39;
 }
 
 .icon:hover {
-  color: aqua;
+  color: #eb5e28;
 }
 </style>

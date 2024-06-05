@@ -1,5 +1,5 @@
 <script setup>
-import specialTea from '../assets/specialTea.jpg'
+// import specialTea from '../assets/specialTea.jpg'
 import specialTea2 from '../assets/specialTea2.jpg'
 import fruitTea from '../assets/fruitTea.jpg'
 import milkTea from '../assets/milkTea.jpg'
