@@ -25,7 +25,7 @@ import milkTea from '../assets/milkTea.jpg'
         <router-link to="/menu">
           <img alt="specialTeaPic" :src="specialTea2" />
           <h1 class="teasH1">SpecialTeas</h1>
-          </router-link>
+        </router-link>
       </section>
     </div>
   </div>
@@ -36,7 +36,7 @@ import milkTea from '../assets/milkTea.jpg'
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 80dvh;
+  height: 85dvh;
 }
 
 #milkTeaTitle {
@@ -65,7 +65,7 @@ import milkTea from '../assets/milkTea.jpg'
 
 .milkTeaBtn img {
   width: 225px;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   transition: transform 0.3s;
 }

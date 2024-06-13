@@ -31,7 +31,7 @@ import tea from '../assets/tea.jpg'
 }
 
 #aboutdiv {
-  height: 100dvh;
+  height: 90dvh;
   display: flex;
   justify-content: center;
 }
