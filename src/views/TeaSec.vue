@@ -6,126 +6,83 @@ import milkTea from '../assets/milkTea.jpg'
 </script>
 
 <template>
-  <div id="teaSecdiv">
-    <h1 id="milkTeaTitle">Delicious Tea</h1>
-    <div class="marquee">
-      <div class="marquee-content">
-        <span class="wavy">&nbsp;</span>
-        <span class="wavy">Y</span>
-        <span class="wavy">U</span>
-        <span class="wavy">M</span>
-        <span class="wavy">&nbsp;</span>
-        <span class="wavy">Y</span>
-        <span class="wavy">U</span>
-        <span class="wavy">M</span>
-        <span class="wavy">&nbsp;</span>
-        <span class="wavy">Y</span>
-        <span class="wavy">U</span>
-        <span class="wavy">M</span>
-        <span class="wavy">&nbsp;</span>
-        <span class="wavy">Y</span>
-        <span class="wavy">U</span>
-        <span class="wavy">M</span>
+  <div id="teaSec">
+    <section id="teaTitleMarqueed">
+      <div class="marquee">
+        <div class="marquee-content">
+          <span class="wavy">&nbsp;</span>
+          <span class="wavy">Y</span>
+          <span class="wavy">U</span>
+          <span class="wavy">M</span>
+          <span class="wavy">&nbsp;</span>
+          <span class="wavy">Y</span>
+          <span class="wavy">U</span>
+          <span class="wavy">M</span>
+          <span class="wavy">&nbsp;</span>
+          <span class="wavy">Y</span>
+          <span class="wavy">U</span>
+          <span class="wavy">M</span>
+          <span class="wavy">&nbsp;</span>
+          <span class="wavy">Y</span>
+          <span class="wavy">U</span>
+          <span class="wavy">M</span>
+        </div>
+        <div class="marquee-content">
+          <span class="wavy">&nbsp;</span>
+          <span class="wavy">Y</span>
+          <span class="wavy">U</span>
+          <span class="wavy">M</span>
+          <span class="wavy">&nbsp;</span>
+          <span class="wavy">Y</span>
+          <span class="wavy">U</span>
+          <span class="wavy">M</span>
+          <span class="wavy">&nbsp;</span>
+          <span class="wavy">Y</span>
+          <span class="wavy">U</span>
+          <span class="wavy">M</span>
+          <span class="wavy">&nbsp;</span>
+          <span class="wavy">Y</span>
+          <span class="wavy">U</span>
+          <span class="wavy">M</span>
+        </div>
       </div>
-      <div class="marquee-content">
-        <span class="wavy">&nbsp;</span>
-        <span class="wavy">Y</span>
-        <span class="wavy">U</span>
-        <span class="wavy">M</span>
-        <span class="wavy">&nbsp;</span>
-        <span class="wavy">Y</span>
-        <span class="wavy">U</span>
-        <span class="wavy">M</span>
-        <span class="wavy">&nbsp;</span>
-        <span class="wavy">Y</span>
-        <span class="wavy">U</span>
-        <span class="wavy">M</span>
-        <span class="wavy">&nbsp;</span>
-        <span class="wavy">Y</span>
-        <span class="wavy">U</span>
-        <span class="wavy">M</span>
-      </div>
-    </div>
-    <div id="milkSec">
+      <h1 id="milkTeaTitle">Try Some ChaCha!</h1>
+    </section>
+    <h2 id="teaSecDescp">Check out some our amazing drinks~</h2>
+    <section id="milkSec">
       <section class="milkTeaBtn">
         <router-link to="/menu">
           <img alt="milkTeaPic" :src="milkTea" />
-          <h1 class="teasH1">Milk Teas</h1>
+          <h3 class="teasH3">Milk Teas</h3>
         </router-link>
       </section>
       <section class="milkTeaBtn">
         <router-link to="/menu">
           <img alt="fruitTeaPic" :src="fruitTea" />
-          <h1 class="teasH1">Fruit Teas</h1>
+          <h3 class="teasH3">Fruit Teas</h3>
         </router-link>
       </section>
       <section class="milkTeaBtn">
         <router-link to="/menu">
           <img alt="specialTeaPic" :src="specialTea2" />
-          <h1 class="teasH1">SpecialTeas</h1>
+          <h3 class="teasH3">SpecialTeas</h3>
         </router-link>
       </section>
-    </div>
+    </section>
   </div>
 </template>
 
 <style scoped>
-#teaSecdiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+#teaSec {
   height: 100dvh;
-}
-
-#milkTeaTitle {
-  text-align: center;
-  font-size: 40px;
-  font-weight: bolder;
-}
-
-#milkSec {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.milkTeaBtn {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-evenly;
 }
 
-.milkTeaBtn,
-.milkTeaBtn img {
+#teaTitleMarqueed {
   position: relative;
-}
-
-.milkTeaBtn img {
-  width: 225px;
-  border-radius: 1.5rem;
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  transition: transform 0.3s;
-}
-
-.milkTeaBtn img:hover {
-  transform: scale(1.05);
-}
-
-.teasH1 {
-  width: 80%;
-  border-top-left-radius: 5rem;
-  border-bottom-right-radius: 5rem;
-  position: absolute;
-  top: 89%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
-  font-weight: bold;
-  font-size: 25px;
-  background-color: #ccc7b9;
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
 .marquee {
@@ -133,7 +90,11 @@ import milkTea from '../assets/milkTea.jpg'
   overflow: hidden;
   white-space: nowrap;
   box-sizing: border-box;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
 }
 
 .marquee-content {
@@ -145,7 +106,7 @@ import milkTea from '../assets/milkTea.jpg'
 .marquee-content span {
   display: inline-block;
   font-size: 10rem;
-  opacity: 30%;
+  opacity: 20%;
   font-weight: bold;
   animation: wave 3s ease-in-out infinite;
   animation-delay: calc(0.2s * var(--i));
@@ -218,5 +179,62 @@ import milkTea from '../assets/milkTea.jpg'
   50% {
     transform: translateY(-60px);
   }
+}
+
+#milkTeaTitle {
+  font-size: 5rem;
+  font-weight: bolder;
+  letter-spacing: 5px;
+}
+
+#teaSecDescp {
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 5px;
+}
+
+#milkSec {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.milkTeaBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.milkTeaBtn,
+.milkTeaBtn img {
+  position: relative;
+}
+
+.milkTeaBtn img {
+  width: 225px;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  transition: transform 0.3s;
+}
+
+.milkTeaBtn img:hover {
+  transform: scale(1.05);
+}
+
+.teasH3 {
+  width: 80%;
+  border-top-left-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  position: absolute;
+  top: 89%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  background-color: #ccc7b9;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 </style>
