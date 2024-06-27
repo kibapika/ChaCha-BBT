@@ -7,19 +7,21 @@
   margin: 0 auto;
   /* padding: 2rem; */
   font-weight: normal;
+  /* color: #252422; */
+  color: #403d39;
 }
 
-a,
-.green {
+a {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  /* color: #252422; */
+  color: #403d39;
   transition: 0.4s;
   padding: 3px;
 }
 
 @media (hover: hover) {
   a:hover {
-    color: black;
+    color: #eb5e28;
   }
 }
 

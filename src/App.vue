@@ -26,8 +26,8 @@ const redirectToAbout = () => {
 
 <template>
   <header>
-    <router-link to="/home"><h1>Cha-Cha</h1></router-link>
-    <nav>
+    <router-link class="title" to="/home"><h1>Cha-Cha</h1></router-link>
+    <nav class="navBar">
       <router-link to="/menu">Menu</router-link>
       <a href="#about" @click="redirectToAbout" @click.prevent="scrollToAbout">Our Story</a>
       <router-link to="/location">Visit Us</router-link>
@@ -39,19 +39,31 @@ const redirectToAbout = () => {
   </main>
   <footer>
     <social class="social" />
-    <h3 class="footer-privacy">
+    <h2 class="footer-privacy">
       © 2024 Cha-Cha. All Rights Reserved. |
       <router-link to="/privacy-policy">Privacy Policy</router-link>
-    </h3>
+    </h2>
   </footer>
 </template>
 
 <style scoped>
 header {
-  line-height: 1.5;
+  line-height: 2;
   display: flex;
   flex-direction: row;
   place-items: center;
+  justify-content: space-around;
+}
+
+.title {
+  font-size: large;
+}
+
+.navBar {
+  font-size: large;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
   justify-content: space-around;
 }
 
@@ -60,7 +72,7 @@ footer {
   flex-direction: column;
   place-items: center;
   justify-content: space-around;
-  margin-top: 25px;
+  margin: 10px;
 }
 
 .social {
@@ -69,10 +81,12 @@ footer {
   flex-direction: row;
   place-items: center;
   justify-content: space-around;
+  padding: 2px;
 }
 
 .footer-privacy {
-  line-height: 1.5;
+  line-height: 2;
+  font-size: medium;
 }
 
 @media (min-width: 1024px) {
