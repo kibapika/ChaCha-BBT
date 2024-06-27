@@ -60,6 +60,7 @@ footer {
   flex-direction: column;
   place-items: center;
   justify-content: space-around;
+  margin-top: 20px;
 }
 
 .social {

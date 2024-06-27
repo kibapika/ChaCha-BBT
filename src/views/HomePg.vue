@@ -1,7 +1,8 @@
 <script setup>
 import video from '../assets/teaVid.mp4'
-import about from '../views/AboutPg.vue'
+import aboutPg from '../views/AboutPg.vue'
 import teaSec from '../views/TeaSec.vue'
+import locatSec from '../views/LocationSec.vue'
 </script>
 
 <template>
@@ -30,9 +31,10 @@ import teaSec from '../views/TeaSec.vue'
     </div>
   </section>
   <section id="about">
-    <about />
+    <aboutPg />
   </section>
   <teaSec />
+  <locatSec />
 </template>
 
 <style scoped>
