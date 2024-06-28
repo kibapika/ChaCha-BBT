@@ -234,7 +234,7 @@ import milkTea from '../assets/milkTea.jpg'
   color: white;
   font-weight: bold;
   font-size: 25px;
-  background-color: #ccc7b9;
+  background-color: #bcbd8b;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 </style>

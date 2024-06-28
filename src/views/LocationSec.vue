@@ -4,7 +4,7 @@
   <div class="locationSecDiv">
     <section class="locationSecPic">
       <div class="locationSecInfo">
-        <h1>Cha Cha on over to our shop, where every sip of bubble tea dances with delight!</h1>
+        <h1>Cha Cha on over to our shop for delightful bubble tea sips!</h1>
         <router-link to="/location" class="router-link"> Cha Cha Locate! </router-link>
       </div>
     </section>
@@ -45,7 +45,7 @@ h1 {
   align-items: center;
   font-size: 20px;
   font-weight: bolder;
-  width: 25%;
+  width: 22%;
   height: 20%;
   border-radius: 10px;
   background-color: #c49f82;
@@ -53,7 +53,7 @@ h1 {
 }
 
 .router-link:hover {
-    transform: scale(1.03);
-    color: #fffcf2;
+  transform: scale(1.03);
+  color: #fffcf2;
 }
 </style>

@@ -39,8 +39,9 @@ import locatSec from '../views/LocationSec.vue'
 
 <style scoped>
 #hometitle {
-  font-size: 55px;
-  font-weight: bold;
+  width: 100%;
+  font-size: 80px;
+  font-weight: 700;
   color: white;
   -webkit-text-stroke: 2px black;
 }

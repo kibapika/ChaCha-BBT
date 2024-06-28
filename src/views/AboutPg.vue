@@ -7,7 +7,7 @@ import tea from '../assets/tea.jpg'
     <div id="container">
       <img id="teapic" alt="teaaboutpg" :src="tea" />
       <section class="box2">
-        <h1 class="text title">The Story of ChaCha</h1>
+        <h1 class="title">The Story of ChaCha</h1>
         <p class="text">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, eius officia. Eaque
           similique qui ducimus, iusto est nulla, beatae a quidem ad facilis dolores repudiandae hic
@@ -31,7 +31,7 @@ import tea from '../assets/tea.jpg'
 }
 
 #aboutdiv {
-  height: 90dvh;
+  height: 95dvh;
   display: flex;
   justify-content: center;
 }
@@ -58,6 +58,6 @@ import tea from '../assets/tea.jpg'
 .title {
   font-weight: bolder;
   line-height: 2;
-  font-size: 23px;
+  font-size: 25px;
 }
 </style>

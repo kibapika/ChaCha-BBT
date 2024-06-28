@@ -26,7 +26,7 @@ const redirectToAbout = () => {
 
 <template>
   <header>
-    <router-link class="title" to="/home"><h1>Cha-Cha</h1></router-link>
+    <router-link to="/home"><h1 class="title">Cha-Cha</h1></router-link>
     <nav class="navBar">
       <router-link to="/menu">Menu</router-link>
       <a href="#about" @click="redirectToAbout" @click.prevent="scrollToAbout">Our Story</a>
@@ -56,15 +56,20 @@ header {
 }
 
 .title {
-  font-size: large;
+  font-size: 2.5rem;
+  font-weight: 500;
 }
 
 .navBar {
-  font-size: large;
-  width: 30%;
+  font-size: 1.25rem;
+  width: 35%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+main {
+  flex-grow: 1; /* Grow to fill remaining space */
 }
 
 footer {
@@ -86,7 +91,7 @@ footer {
 
 .footer-privacy {
   line-height: 2;
-  font-size: medium;
+  font-size: 16px;
 }
 
 @media (min-width: 1024px) {

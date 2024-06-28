@@ -7,13 +7,11 @@
   margin: 0 auto;
   /* padding: 2rem; */
   font-weight: normal;
-  /* color: #252422; */
   color: #403d39;
 }
 
 a {
   text-decoration: none;
-  /* color: #252422; */
   color: #403d39;
   transition: 0.4s;
   padding: 3px;
