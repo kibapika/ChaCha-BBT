@@ -5,8 +5,14 @@ export default {
 </script>
 <template>
   <div>
-    <h2>Tab 2 Content</h2>
-    <p>This is the content for Tab 2.</p>
+    <h2>Fruit Teas</h2>
+    <ul>
+        <li>Mango Green Tea - Green Tea, Mango Flavor, Mango Jelly</li>
+        <li>Passion Fruit Black Tea - Black Tea, Passion Fruit, Popping Boba</li>
+        <li>Strawberry Lemonade Tea - Black Tea, Strawberry Flavor, Lemon Slices, Strawberry Slices</li>
+        <li>Peach Oolong Tea - Oolong Tea, Peach Flavor, Lychee Jelly</li>
+        <li>Lychee Green Tea - Green Tea, Lychee Flavor, Fresh Lychee</li>
+      </ul>
   </div>
 </template>
 

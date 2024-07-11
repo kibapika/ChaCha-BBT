@@ -6,8 +6,14 @@ export default {
 
 <template>
   <div>
-    <h2>Tab 3 Content</h2>
-    <p>This is the content for Tab 3.</p>
+    <h2>Specialty Teas</h2>
+    <ul>
+      <li>Brown Sugar Milk Tea - Black Tea, Milk, Brown Sugar Syrup</li>
+      <li>Matcha Latte - Matcha Green Tea, Milk</li>
+      <li>Honeydew Milk Tea - Honeydew Flavor, Milk</li>
+      <li>Mango Smoothie - Mango, Milk, Ice, Cubed Mangos</li>
+      <li>Red Bean Milk Tea - Black Tea, Milk, Red Bean</li>
+    </ul>
   </div>
 </template>
 
