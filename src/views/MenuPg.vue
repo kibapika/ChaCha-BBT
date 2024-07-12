@@ -50,7 +50,7 @@ export default {
       </div>
     </section>
     <div class="menuCustom">
-      <section>
+      <section class="menuCustomSec">
         <h1>Toppings</h1>
         <ul>
           <li>Tapioca Peals</li>
@@ -64,7 +64,7 @@ export default {
           <li>Red Bean</li>
         </ul>
       </section>
-      <section>
+      <section class="menuCustomSec">
         <h1>Customizaion Options</h1>
         <ul>
           <li>Sugar Levels: 0%, 25%, 50%, 75%, 100%</li>
@@ -78,13 +78,13 @@ export default {
 
 <style>
 .menuTitle {
-    background-color: #baa898;
-    height: 18dvh;
-    font-size: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  background-color: #baa898;
+  height: 18dvh;
+  font-size: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .menuDiv {
   display: flex;
@@ -137,8 +137,21 @@ button.active {
 .menuCustom {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 80%;
-  padding-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  background-color: white;
+  border-radius: 15px;
+}
+
+.menuCustomSec {
+  width: 50%;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 </style>
