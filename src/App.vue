@@ -1,27 +1,27 @@
 <script setup>
-import { useRouter } from 'vue-router'
+// import { useRouter } from 'vue-router'
 import social from './components/SocialNav.vue'
 
-const router = useRouter()
+// const router = useRouter()
 
-const scrollToAbout = () => {
-  const aboutSection = document.getElementById('about')
-  if (aboutSection) {
-    const offset = document.querySelector('header').offsetHeight
-    window.scrollTo({
-      top: aboutSection.offsetTop - offset,
-      behavior: 'smooth'
-    })
-    router.push({ hash: '#about' })
-  }
-}
+// const scrollToAbout = () => {
+//   const aboutSection = document.getElementById('about')
+//   if (aboutSection) {
+//     const offset = document.querySelector('header').offsetHeight
+//     window.scrollTo({
+//       top: aboutSection.offsetTop - offset,
+//       behavior: 'smooth'
+//     })
+//     router.push({ hash: '#about' })
+//   }
+// }
 
-const redirectToAbout = () => {
-  router.push('/#about')
-  console.log('hello') // Navigate to the 'home' route with hash '#about'
-  scrollToAbout() // Call the scrolling function'
-  console.log('bye')
-}
+// const redirectToAbout = () => {
+//   router.push('/#about')
+//   console.log('hello') // Navigate to the 'home' route with hash '#about'
+//   scrollToAbout() // Call the scrolling function'
+//   console.log('bye')
+// }
 </script>
 
 <template>
@@ -29,7 +29,8 @@ const redirectToAbout = () => {
     <router-link to="/home"><h1 class="title">Cha-Cha</h1></router-link>
     <nav class="navBar">
       <router-link to="/menu">Menu</router-link>
-      <a href="#about" @click="redirectToAbout" @click.prevent="scrollToAbout">Our Story</a>
+      <!-- <a href="#about" @click="redirectToAbout" @click.prevent="scrollToAbout">Our Story</a> -->
+      <router-link :to="{ path: '/', hash: '#about' }">About</router-link>
       <router-link to="/location">Visit Us</router-link>
       <router-link to="/contact">Contact</router-link>
     </nav>
