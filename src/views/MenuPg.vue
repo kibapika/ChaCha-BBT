@@ -28,7 +28,9 @@ export default {
 </script>
 
 <template>
-  <h1 class="menuTitle">Menu</h1>
+  <section class="titleBox">
+    <h1 class="menuTitle">Menu</h1>
+  </section>
   <div class="menuDiv">
     <section>
       <div class="tabs" role="tablist">
@@ -77,13 +79,22 @@ export default {
 </template>
 
 <style scoped>
+.titleBox {
+  background-image: url('../assets/driedTea.jpg');
+  background-size: cover;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 .menuTitle {
-  background-color: #baa898;
+  width: 80%;
   height: 18dvh;
   font-size: 55px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .menuDiv {

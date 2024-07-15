@@ -8,16 +8,19 @@
 
 <style scoped>
 .titleBox {
-    background-color: #baa898;
+    background-image: url('../assets/driedTea.jpg');
+    background-size: cover;
+    padding: 20px;
     display: flex;
     justify-content: center;
   }
 
 .contactTitle {
     width: 80%;
-    height: 25dvh;
-    font-size: 50px;
+    height: 18dvh;
+    font-size: 55px;
     display: flex;
     align-items: center;
+    color: white;
 }
 </style>
