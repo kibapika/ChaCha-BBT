@@ -26,14 +26,16 @@ import social from './components/SocialNav.vue'
 
 <template>
   <header>
-    <router-link to="/home"><h1 class="title">Cha-Cha</h1></router-link>
-    <nav class="navBar">
-      <router-link to="/menu">Menu</router-link>
-      <!-- <a href="#about" @click="redirectToAbout" @click.prevent="scrollToAbout">Our Story</a> -->
-      <router-link :to="{ path: '/', hash: '#about' }">About</router-link>
-      <router-link to="/location">Visit Us</router-link>
-      <router-link to="/contact">Contact</router-link>
-    </nav>
+    <div class="headerDiv">
+      <router-link to="/home"><h1 class="title">Cha-Cha</h1></router-link>
+      <nav class="navBar">
+        <router-link to="/menu">Menu</router-link>
+        <!-- <a href="#about" @click="redirectToAbout" @click.prevent="scrollToAbout">Our Story</a> -->
+        <router-link :to="{ path: '/', hash: '#about' }">About</router-link>
+        <router-link to="/location">Visit Us</router-link>
+        <router-link to="/contact">Contact</router-link>
+      </nav>
+    </div>
   </header>
   <main>
     <router-view />
@@ -49,11 +51,16 @@ import social from './components/SocialNav.vue'
 
 <style scoped>
 header {
-  line-height: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.headerDiv {
+  width: 80%;
   display: flex;
   flex-direction: row;
-  place-items: center;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .title {

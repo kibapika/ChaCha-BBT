@@ -65,7 +65,7 @@ export default {
         </ul>
       </section>
       <section class="menuCustomSec">
-        <h1>Customizaion Options</h1>
+        <h1>Customization Options</h1>
         <ul>
           <li>Sugar Levels: 0%, 25%, 50%, 75%, 100%</li>
           <li>Ice Levels: No Ice, Less Ice, Regular Ice, Extra Ice</li>
@@ -76,7 +76,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 .menuTitle {
   background-color: #baa898;
   height: 18dvh;
