@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import privacySec from '../components/PrivacySec.vue'
 
-const contact = 'inquiries@chachausa.com'
+const contact = 'inquiries@chachabubbletea.com'
 
 const paras = ref([
   {
