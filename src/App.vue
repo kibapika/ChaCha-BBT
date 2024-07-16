@@ -1,7 +1,6 @@
 <script setup>
 // import { useRouter } from 'vue-router'
 import social from './components/SocialNav.vue'
-
 // const router = useRouter()
 
 // const scrollToAbout = () => {
