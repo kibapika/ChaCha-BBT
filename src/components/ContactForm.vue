@@ -1,5 +1,10 @@
 <script>
+import CustomCaptcha from '../components/VueCaptcha.vue'
+
 export default {
+  components: {
+    CustomCaptcha,
+  },
   data() {
     return {
       form: {
@@ -10,65 +15,71 @@ export default {
         message: ''
       },
       submitted: false,
-      isHuman: false // This will be true once reCAPTCHA is verified
+      isEmailValid: true,
+      isCaptchaValid: false // Flag to track CAPTCHA validation state
+    };
+  },
+  computed: {
+    isFormValid() {
+      return this.isEmailValid && this.isCaptchaValid && this.form.firstName && this.form.lastName && this.form.email && this.form.subject && this.form.message;
     }
   },
   methods: {
     submitForm() {
-      if (this.isHuman) {
-        // Here you would typically handle the form submission, e.g., send the data to a server
-        console.log('Form submitted:', this.form)
+      if (this.isFormValid) {
+        // Form submission logic here
+        console.log('Form submitted:', this.form);
 
         // Set submitted to true to show the thank you message
-        this.submitted = true
+        this.submitted = true;
 
         // Reset the form
-        this.form.firstName = ''
-        this.form.lastName = ''
-        this.form.email = ''
-        this.form.subject = ''
-        this.form.message = ''
-
-        // Reset reCAPTCHA
-        this.$refs.recaptcha.reset()
-        this.isHuman = false
+        this.form.firstName = '';
+        this.form.lastName = '';
+        this.form.email = '';
+        this.form.subject = '';
+        this.form.message = '';
+        this.isCaptchaValid = false; // Reset CAPTCHA validation
+      } else {
+        // Handle form validation errors or incomplete form submission
+        console.error('Form validation failed.');
       }
     },
-    onVerify(response) {
-      console.log('Verified:', response)
-      this.isHuman = true
+    validateEmail() {
+      // Basic email format validation using regex
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      this.isEmailValid = regex.test(this.form.email);
     },
-    onExpired() {
-      console.log('Expired')
-      this.isHuman = false
+    handleCaptchaValidation(isValid) {
+      this.isCaptchaValid = isValid;
     }
   }
-}
+};
 </script>
 
 <template>
   <section class="contactFormTitle">
     <h1>Drop us a line at Chacha!</h1>
-    <p>
-      Your questions, feedback, and hellos brighten our day. Let's chat and make your bubble tea
-      dreams a delightful reality!
-    </p>
+    <p>Your questions, feedback, and hellos brighten our day. Let's chat and make your bubble tea dreams a delightful reality!</p>
   </section>
   <form @submit.prevent="submitForm">
     <div class="formDiv">
-      <label for="name">First Name:</label>
-      <input type="text" id="name" v-model="form.firstName" required />
-      <label for="name">Last Name:</label>
-      <input type="text" id="name" v-model="form.lastName" required />
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" v-model="form.firstName" required />
+    </div>
+    <div class="formDiv">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" v-model="form.lastName" required />
     </div>
     <div class="formDiv">
       <label for="email">Email:</label>
-      <input type="email" id="email" v-model="form.email" required />
+      <input type="email" id="email" v-model="form.email" @blur="validateEmail" required />
+      <span v-if="!isEmailValid && form.email !== ''" class="error">Please enter a valid email address.</span>
     </div>
     <div class="formDiv">
       <label for="subject">Subject:</label>
       <select id="subject" v-model="form.subject" required>
-        <option disabled value="">Please Select Nne</option>
+        <option disabled value="">Please Select One</option>
         <option>General Inquiry</option>
         <option>Support</option>
         <option>Product Feedback</option>
@@ -79,8 +90,8 @@ export default {
       <label for="message">Spill the Tea:</label>
       <textarea id="message" v-model="form.message" required></textarea>
     </div>
-    <vue-recaptcha v-if="!submitted" @verify="onVerify" @expired="onExpired"></vue-recaptcha>
-    <button type="submit" :disabled="!isHuman">Submit</button>
+    <CustomCaptcha @captcha-validated="handleCaptchaValidation" />
+    <button type="submit" :disabled="!isFormValid">Submit</button>
   </form>
   <p v-if="submitted">Thank you for your message! We will get back to you soon.</p>
 </template>
@@ -129,8 +140,9 @@ button:hover {
   background-color: #369c6e;
 }
 
-.required {
+.error {
   color: red;
-  margin-left: 5px;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
 </style>

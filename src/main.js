@@ -11,27 +11,22 @@
 
 // createApp(App).use(router).mount('#app').component('v-icon', OhVueIcon);
 
-import './assets/main.css';
+import './assets/main.css'; // Make sure this path is correct
+
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import { OhVueIcon, addIcons } from 'oh-vue-icons';
-import { BiFacebook, BiTwitter, BiInstagram, BiTiktok, HiMail,RiBearSmileLine, BiHeart, CoSad } from "oh-vue-icons/icons";
-import { VueRecaptchaPlugin } from 'vue-recaptcha';
+import { BiFacebook, BiTwitter, BiInstagram, BiTiktok, HiMail, RiBearSmileLine, BiHeart, CoSad } from "oh-vue-icons/icons";
 
-
+// Add the icons
 addIcons(BiFacebook, BiTwitter, BiInstagram, BiTiktok, HiMail, RiBearSmileLine, BiHeart, CoSad);
 
 const app = createApp(App);
 
+// Register OhVueIcon globally
 app.component('v-icon', OhVueIcon);
 
 app.use(router);
-
-app.use(VueRecaptchaPlugin, {
-    v2SiteKey: 'YOUR_V2_SITEKEY_HERE',
-    v3SiteKey: 'YOUR_V3_SITEKEY_HERE',
-  });
-
 
 app.mount('#app');
