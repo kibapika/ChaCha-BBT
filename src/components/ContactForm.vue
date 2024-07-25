@@ -1,5 +1,5 @@
 <script>
-import CustomCaptcha from '../components/VueCaptcha.vue'
+import CustomCaptcha from '../components/VueCaptcha.vue';
 
 export default {
   components: {
@@ -16,16 +16,31 @@ export default {
       },
       submitted: false,
       isEmailValid: true,
-      isCaptchaValid: false // Flag to track CAPTCHA validation state
+      isCaptchaValid: false, // Flag to track CAPTCHA validation state
+      validation: {
+        firstNameValid: true,
+        lastNameValid: true,
+        subjectValid: true,
+        messageValid: true,
+      }
     };
   },
   computed: {
     isFormValid() {
-      return this.isEmailValid && this.isCaptchaValid && this.form.firstName && this.form.lastName && this.form.email && this.form.subject && this.form.message;
+      return this.isEmailValid && this.isCaptchaValid &&
+        this.form.firstName && this.form.lastName && this.form.email &&
+        this.form.subject && this.form.message;
     }
   },
   methods: {
     submitForm() {
+      // Validate all fields before submitting
+      this.validateField('firstName');
+      this.validateField('lastName');
+      this.validateEmail('email');
+      this.validateField('subject');
+      this.validateField('message');
+
       if (this.isFormValid) {
         // Form submission logic here
         console.log('Form submitted:', this.form);
@@ -50,6 +65,17 @@ export default {
       const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       this.isEmailValid = regex.test(this.form.email);
     },
+    validateField(field) {
+      if (field === 'firstName') {
+        this.validation.firstNameValid = this.form.firstName !== '';
+      } else if (field === 'lastName') {
+        this.validation.lastNameValid = this.form.lastName !== '';
+      } else if (field === 'subject') {
+        this.validation.subjectValid = this.form.subject !== '';
+      } else if (field === 'message') {
+        this.validation.messageValid = this.form.message !== '';
+      }
+    },
     handleCaptchaValidation(isValid) {
       this.isCaptchaValid = isValid;
     }
@@ -65,11 +91,13 @@ export default {
   <form @submit.prevent="submitForm">
     <div class="formDiv">
       <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" v-model="form.firstName" required />
+      <input type="text" id="firstName" v-model="form.firstName" @blur="validateField('firstName')" required />
+      <span v-if="!validation.firstNameValid && form.firstName === ''" class="error">First name is required.</span>
     </div>
     <div class="formDiv">
       <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" v-model="form.lastName" required />
+      <input type="text" id="lastName" v-model="form.lastName" @blur="validateField('lastName')" required />
+      <span v-if="!validation.lastNameValid && form.lastName === ''" class="error">Last name is required.</span>
     </div>
     <div class="formDiv">
       <label for="email">Email:</label>
@@ -78,19 +106,22 @@ export default {
     </div>
     <div class="formDiv">
       <label for="subject">Subject:</label>
-      <select id="subject" v-model="form.subject" required>
+      <select id="subject" v-model="form.subject" @blur="validateField('subject')" required>
         <option disabled value="">Please Select One</option>
         <option>General Inquiry</option>
         <option>Support</option>
         <option>Product Feedback</option>
         <option>Store Visit Feedback</option>
       </select>
+      <span v-if="!validation.subjectValid && form.subject === ''" class="error">Subject is required.</span>
     </div>
     <div class="formDiv">
       <label for="message">Spill the Tea:</label>
-      <textarea id="message" v-model="form.message" required></textarea>
+      <textarea id="message" v-model="form.message" @blur="validateField('message')" required></textarea>
+      <span v-if="!validation.messageValid && form.message === ''" class="error">Message is required.</span>
     </div>
     <CustomCaptcha @captcha-validated="handleCaptchaValidation" />
+    <span v-if="!isCaptchaValid" class="error">Please complete the CAPTCHA.</span>
     <button type="submit" :disabled="!isFormValid">Submit</button>
   </form>
   <p v-if="submitted">Thank you for your message! We will get back to you soon.</p>
