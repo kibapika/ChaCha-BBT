@@ -5,7 +5,7 @@ import Modal from '../components/PopupBox.vue'
 export default {
   components: {
     CustomCaptcha,
-    Modal
+    Modal,
   },
   data() {
     return {
@@ -14,63 +14,91 @@ export default {
         lastName: '',
         email: '',
         subject: '',
-        message: ''
+        message: '',
       },
       submitted: false,
-      isCaptchaValid: false
-    }
+      isCaptchaValid: false,
+      touched: {
+        firstName: false,
+        lastName: false,
+        email: false,
+        subject: false,
+        message: false,
+      },
+    };
   },
   computed: {
     isFormValid() {
-      return this.isEmailValid && this.isCaptchaValid && this.isAllFieldsValid
+      return this.isEmailValid && this.isCaptchaValid && this.isAllFieldsValid;
     },
     isEmailValid() {
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      return regex.test(this.form.email)
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(this.form.email);
     },
     isAllFieldsValid() {
-      return this.form.firstName && this.form.lastName && this.form.subject && this.form.message
+      return (
+        this.form.firstName &&
+        this.form.lastName &&
+        this.form.subject &&
+        this.form.message
+      );
     },
     firstNameError() {
-      return this.form.firstName === ''
+      return this.touched.firstName && this.form.firstName === '';
     },
     lastNameError() {
-      return this.form.lastName === ''
+      return this.touched.lastName && this.form.lastName === '';
     },
     subjectError() {
-      return this.form.subject === ''
+      return this.touched.subject && this.form.subject === '';
     },
     messageError() {
-      return this.form.message === ''
-    }
+      return this.touched.message && this.form.message === '';
+    },
   },
   methods: {
     submitForm() {
+      // Mark all fields as touched before validation
+      this.touched.firstName = true;
+      this.touched.lastName = true;
+      this.touched.email = true;
+      this.touched.subject = true;
+      this.touched.message = true;
+
       if (this.isFormValid) {
-        console.log('Form submitted:', this.form)
-        this.submitted = true
-        this.resetForm()
+        console.log('Form submitted:', this.form);
+        this.submitted = true;
+        this.resetForm();
       } else {
-        console.error('Form validation failed.')
+        console.error('Form validation failed.');
       }
     },
     resetForm() {
-      this.form.firstName = ''
-      this.form.lastName = ''
-      this.form.email = ''
-      this.form.subject = ''
-      this.form.message = ''
-      this.isCaptchaValid = false
-      this.$refs.captcha.refreshCaptcha() // Call the refresh method on the CAPTCHA component
+      this.form.firstName = '';
+      this.form.lastName = '';
+      this.form.email = '';
+      this.form.subject = '';
+      this.form.message = '';
+      this.isCaptchaValid = false;
+      this.$refs.captcha.refreshCaptcha(); // Reset CAPTCHA
+
+      // Reset touched state
+      this.touched = {
+        firstName: false,
+        lastName: false,
+        email: false,
+        subject: false,
+        message: false,
+      };
     },
     handleCaptchaValidation(isValid) {
-      this.isCaptchaValid = isValid
+      this.isCaptchaValid = isValid;
     },
     closeModal() {
-      this.submitted = false
-    }
-  }
-}
+      this.submitted = false;
+    },
+  },
+};
 </script>
 
 <template>
@@ -83,38 +111,40 @@ export default {
   </section>
   <form @submit.prevent="submitForm">
     <div class="formDiv" :class="{ error: firstNameError }">
-      <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" v-model="form.firstName" required />
-      <span v-if="firstNameError" class="error">First name is required.</span>
+      <label for="firstName">First Name </label>
+      <span v-if="firstNameError" class="error">(First name is required!)</span>
+      <input type="text" id="firstName" v-model="form.firstName" @focus="touched.firstName = true" required />
     </div>
     <div class="formDiv" :class="{ error: lastNameError }">
-      <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" v-model="form.lastName" required />
-      <span v-if="lastNameError" class="error">Last name is required.</span>
+      <label for="lastName">Last Name </label>
+      <span v-if="lastNameError" class="error">(Last name is required!)</span>
+      <input type="text" id="lastName" v-model="form.lastName" @focus="touched.lastName = true" required />
     </div>
-    <div class="formDiv" :class="{ error: !isEmailValid }">
-      <label for="email">Email:</label>
-      <input type="email" id="email" v-model="form.email" required />
-      <span v-if="!isEmailValid" class="error">Please enter a valid email address.</span>
+    <div class="formDiv" :class="{ error: !isEmailValid && touched.email }">
+      <label for="email">Email </label>
+      <span v-if="!isEmailValid && touched.email" class="error">(Please enter a valid email address.)</span>
+      <input type="email" id="email" v-model="form.email" @focus="touched.email = true" required />
     </div>
     <div class="formDiv" :class="{ error: subjectError }">
-      <label for="subject">Subject:</label>
-      <select id="subject" v-model="form.subject" required>
+      <label for="subject">Subject </label>
+      <span v-if="subjectError" class="error">(Subject is required!)</span>
+      <select id="subject" v-model="form.subject" @focus="touched.subject = true" required>
         <option disabled value="">Please Select One</option>
         <option>General Inquiry</option>
         <option>Support</option>
         <option>Product Feedback</option>
         <option>Store Visit Feedback</option>
       </select>
-      <span v-if="subjectError" class="error">Subject is required.</span>
     </div>
     <div class="formDiv" :class="{ error: messageError }">
-      <label for="message">Spill the Tea:</label>
-      <textarea id="message" v-model="form.message" required></textarea>
-      <span v-if="messageError" class="error">Message is required.</span>
+      <label for="message">Spill the Tea </label>
+      <span v-if="messageError" class="error">(Message is required!)</span>
+      <textarea id="message" v-model="form.message" @focus="touched.message = true" required></textarea>
     </div>
-    <CustomCaptcha ref="captcha" @captcha-validated="handleCaptchaValidation" />
-    <span v-if="!isCaptchaValid" class="error">Please complete the CAPTCHA.</span>
+    <div class="formDiv">
+      <CustomCaptcha ref="captcha" @captcha-validated="handleCaptchaValidation" />
+      <span v-if="!isCaptchaValid" class="error">Please complete the CAPTCHA.</span>
+    </div>
     <button type="submit" :disabled="!isFormValid">Submit</button>
   </form>
   <Modal :visible="submitted" @close="closeModal">
@@ -153,7 +183,8 @@ form {
   margin-bottom: 1rem;
 }
 
-label {
+.formDiv label {
+  color: black;
   font-weight: bold;
 }
 
@@ -182,7 +213,5 @@ button:hover {
 
 .error {
   color: red;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
 }
 </style>
