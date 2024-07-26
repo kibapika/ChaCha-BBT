@@ -1,9 +1,11 @@
 <script>
-import CustomCaptcha from '../components/VueCaptcha.vue';
+import CustomCaptcha from '../components/VueCaptcha.vue'
+import Modal from '../components/PopupBox.vue'
 
 export default {
   components: {
     CustomCaptcha,
+    Modal
   },
   data() {
     return {
@@ -15,116 +17,109 @@ export default {
         message: ''
       },
       submitted: false,
-      isEmailValid: true,
-      isCaptchaValid: false, // Flag to track CAPTCHA validation state
-      validation: {
-        firstNameValid: true,
-        lastNameValid: true,
-        subjectValid: true,
-        messageValid: true,
-      }
-    };
+      isCaptchaValid: false
+    }
   },
   computed: {
     isFormValid() {
-      return this.isEmailValid && this.isCaptchaValid &&
-        this.form.firstName && this.form.lastName && this.form.email &&
-        this.form.subject && this.form.message;
+      return this.isEmailValid && this.isCaptchaValid && this.isAllFieldsValid
+    },
+    isEmailValid() {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      return regex.test(this.form.email)
+    },
+    isAllFieldsValid() {
+      return this.form.firstName && this.form.lastName && this.form.subject && this.form.message
+    },
+    firstNameError() {
+      return this.form.firstName === ''
+    },
+    lastNameError() {
+      return this.form.lastName === ''
+    },
+    subjectError() {
+      return this.form.subject === ''
+    },
+    messageError() {
+      return this.form.message === ''
     }
   },
   methods: {
     submitForm() {
-      // Validate all fields before submitting
-      this.validateField('firstName');
-      this.validateField('lastName');
-      this.validateEmail('email');
-      this.validateField('subject');
-      this.validateField('message');
-
       if (this.isFormValid) {
-        // Form submission logic here
-        console.log('Form submitted:', this.form);
-
-        // Set submitted to true to show the thank you message
-        this.submitted = true;
-
-        // Reset the form
-        this.form.firstName = '';
-        this.form.lastName = '';
-        this.form.email = '';
-        this.form.subject = '';
-        this.form.message = '';
-        this.isCaptchaValid = false; // Reset CAPTCHA validation
+        console.log('Form submitted:', this.form)
+        this.submitted = true
+        this.resetForm()
       } else {
-        // Handle form validation errors or incomplete form submission
-        console.error('Form validation failed.');
+        console.error('Form validation failed.')
       }
     },
-    validateEmail() {
-      // Basic email format validation using regex
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      this.isEmailValid = regex.test(this.form.email);
-    },
-    validateField(field) {
-      if (field === 'firstName') {
-        this.validation.firstNameValid = this.form.firstName !== '';
-      } else if (field === 'lastName') {
-        this.validation.lastNameValid = this.form.lastName !== '';
-      } else if (field === 'subject') {
-        this.validation.subjectValid = this.form.subject !== '';
-      } else if (field === 'message') {
-        this.validation.messageValid = this.form.message !== '';
-      }
+    resetForm() {
+      this.form.firstName = ''
+      this.form.lastName = ''
+      this.form.email = ''
+      this.form.subject = ''
+      this.form.message = ''
+      this.isCaptchaValid = false
+      this.$refs.captcha.refreshCaptcha() // Call the refresh method on the CAPTCHA component
     },
     handleCaptchaValidation(isValid) {
-      this.isCaptchaValid = isValid;
+      this.isCaptchaValid = isValid
+    },
+    closeModal() {
+      this.submitted = false
     }
   }
-};
+}
 </script>
 
 <template>
   <section class="contactFormTitle">
     <h1>Drop us a line at Chacha!</h1>
-    <p>Your questions, feedback, and hellos brighten our day. Let's chat and make your bubble tea dreams a delightful reality!</p>
+    <p>
+      Your questions, feedback, and hellos brighten our day. Let's chat and make your bubble tea
+      dreams a delightful reality!
+    </p>
   </section>
   <form @submit.prevent="submitForm">
-    <div class="formDiv">
+    <div class="formDiv" :class="{ error: firstNameError }">
       <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" v-model="form.firstName" @blur="validateField('firstName')" required />
-      <span v-if="!validation.firstNameValid && form.firstName === ''" class="error">First name is required.</span>
+      <input type="text" id="firstName" v-model="form.firstName" required />
+      <span v-if="firstNameError" class="error">First name is required.</span>
     </div>
-    <div class="formDiv">
+    <div class="formDiv" :class="{ error: lastNameError }">
       <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" v-model="form.lastName" @blur="validateField('lastName')" required />
-      <span v-if="!validation.lastNameValid && form.lastName === ''" class="error">Last name is required.</span>
+      <input type="text" id="lastName" v-model="form.lastName" required />
+      <span v-if="lastNameError" class="error">Last name is required.</span>
     </div>
-    <div class="formDiv">
+    <div class="formDiv" :class="{ error: !isEmailValid }">
       <label for="email">Email:</label>
-      <input type="email" id="email" v-model="form.email" @blur="validateEmail" required />
-      <span v-if="!isEmailValid && form.email !== ''" class="error">Please enter a valid email address.</span>
+      <input type="email" id="email" v-model="form.email" required />
+      <span v-if="!isEmailValid" class="error">Please enter a valid email address.</span>
     </div>
-    <div class="formDiv">
+    <div class="formDiv" :class="{ error: subjectError }">
       <label for="subject">Subject:</label>
-      <select id="subject" v-model="form.subject" @blur="validateField('subject')" required>
+      <select id="subject" v-model="form.subject" required>
         <option disabled value="">Please Select One</option>
         <option>General Inquiry</option>
         <option>Support</option>
         <option>Product Feedback</option>
         <option>Store Visit Feedback</option>
       </select>
-      <span v-if="!validation.subjectValid && form.subject === ''" class="error">Subject is required.</span>
+      <span v-if="subjectError" class="error">Subject is required.</span>
     </div>
-    <div class="formDiv">
+    <div class="formDiv" :class="{ error: messageError }">
       <label for="message">Spill the Tea:</label>
-      <textarea id="message" v-model="form.message" @blur="validateField('message')" required></textarea>
-      <span v-if="!validation.messageValid && form.message === ''" class="error">Message is required.</span>
+      <textarea id="message" v-model="form.message" required></textarea>
+      <span v-if="messageError" class="error">Message is required.</span>
     </div>
-    <CustomCaptcha @captcha-validated="handleCaptchaValidation" />
+    <CustomCaptcha ref="captcha" @captcha-validated="handleCaptchaValidation" />
     <span v-if="!isCaptchaValid" class="error">Please complete the CAPTCHA.</span>
     <button type="submit" :disabled="!isFormValid">Submit</button>
   </form>
-  <p v-if="submitted">Thank you for your message! We will get back to you soon.</p>
+  <Modal :visible="submitted" @close="closeModal">
+    <p>Thank you for your message! We will get back to you soon.</p>
+  </Modal>
 </template>
 
 <style scoped>
@@ -132,6 +127,20 @@ export default {
   width: 50%;
 }
 
+.contactFormTitle h1 {
+  font-size: 33px;
+  letter-spacing: 0.5px;
+  text-decoration: underline #eb5e28;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 7px;
+  border-radius: 5px;
+}
+
+.contactFormTitle p {
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
 form {
   display: flex;
   flex-direction: column;

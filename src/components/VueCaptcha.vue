@@ -5,7 +5,7 @@ export default {
       captcha: '',
       userInput: '',
       captchaMatch: false,
-      showResult: false,
+      showResult: false
     };
   },
   mounted() {
@@ -31,22 +31,34 @@ export default {
       this.captchaMatch = this.userInput.toLowerCase() === this.captcha.toLowerCase();
       this.showResult = true;
       this.$emit('captcha-validated', this.captchaMatch);
-    },
-  },
+    }
+  }
 };
 </script>
 
 <template>
-  <div>
-    <label for="captchaInput">Enter the text you see below:</label>
-    <div class="captcha-box">{{ captcha }}</div>
-    <input type="text" id="captchaInput" v-model="userInput" @input="checkCaptcha">
-    <button type="button" @click="refreshCaptcha">Refresh</button>
-    <span v-if="showResult" class="captcha-result">{{ captchaMatch ? 'CAPTCHA correct!' : 'CAPTCHA incorrect. Please try again.' }}</span>
+  <div class="captchaDiv">
+    <section>
+      <label for="captchaInput">Enter the text you see below:</label>
+      <div class="captcha-box">{{ captcha }}</div>
+    </section>
+    <section>
+      <input type="text" id="captchaInput" v-model="userInput" @input="checkCaptcha" />
+      <button type="button" @click="refreshCaptcha">Refresh</button>
+    </section>
+    <span v-if="showResult" class="captcha-result">{{
+      captchaMatch ? 'CAPTCHA correct!' : 'CAPTCHA incorrect. Please try again.'
+    }}</span>
   </div>
 </template>
 
 <style scoped>
+.captchaDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .captcha-box {
   display: inline-block;
   padding: 8px;
