@@ -57,6 +57,13 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  background-color: #ccc5b9;
+  box-shadow:
+  0 4px 6px -1px rgb(0 0 0 / 0.1),
+  0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .captcha-box {

@@ -145,7 +145,7 @@ export default {
       <CustomCaptcha ref="captcha" @captcha-validated="handleCaptchaValidation" />
       <span v-if="!isCaptchaValid" class="error">Please complete the CAPTCHA.</span>
     </div>
-    <button type="submit" :disabled="!isFormValid">Submit</button>
+    <button type="submit" :disabled="!isFormValid">Submit Form</button>
   </form>
   <Modal :visible="submitted" @close="closeModal">
     <p>Thank you for your message! We will get back to you soon.</p>
@@ -184,7 +184,7 @@ form {
 }
 
 .formDiv label {
-  color: black;
+  color: #403d39;
   font-weight: bold;
 }
 
