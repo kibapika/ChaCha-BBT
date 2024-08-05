@@ -38,11 +38,11 @@ export default {
 
 <template>
   <div class="captchaDiv">
-    <section>
+    <section class="captchaSec1">
       <label for="captchaInput">Enter the text you see below:</label>
       <div class="captcha-box">{{ captcha }}</div>
     </section>
-    <section>
+    <section class="captchaSec2">
       <input type="text" id="captchaInput" v-model="userInput" @input="checkCaptcha" />
       <button type="button" @click="refreshCaptcha">Refresh</button>
     </section>
@@ -57,8 +57,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   border-radius: 10px;
   background-color: #ccc5b9;
   box-shadow:
@@ -66,12 +66,35 @@ export default {
   0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
+.captchaSec1 {
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  
+}
+
 .captcha-box {
   display: inline-block;
-  padding: 8px;
-  border: 1px solid #ccc;
-  font-size: 18px;
-  margin-bottom: 10px;
+  text-decoration: underline #eb5e28 2px;
+  text-underline-offset: 6px;
+  font-size: 20px;
+}
+
+.captchaSec2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+}
+
+#captchaInput {
+  width: 60%;
+  background: none;
+  border: none;
 }
 
 .captcha-result {
