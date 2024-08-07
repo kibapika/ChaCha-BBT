@@ -49,7 +49,7 @@ export default {
       <button type="button" @click="refreshCaptcha">Refresh</button>
     </section>
     <span v-if="showResult" class="captcha-result">{{
-      captchaMatch ? 'CAPTCHA correct!' : 'CAPTCHA incorrect. Please try again.'
+      captchaMatch ? 'CAPTCHA correct!' : 'CAPTCHA incorrect! Please try again.'
     }}</span>
   </div>
 </template>
@@ -136,13 +136,11 @@ export default {
   border-radius: 30px;
   padding-left: 15px;
   letter-spacing: 0.8px;
-  color: rgb(19, 19, 19);
   font-size: 13.4px;
 }
 
 .captcha-result {
   margin-top: 10px;
   font-weight: bold;
-  color: #333;
 }
 </style>
