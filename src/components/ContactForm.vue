@@ -161,9 +161,9 @@ export default {
     </div>
     <button type="submit" :disabled="!isFormValid">
       <div>
-        <v-icon id="icon" class="icon" scale="2" name="bi-send-fill" />
+        <v-icon id="icon" class="icon" scale="1.5" name="bi-send-fill" />
       </div>
-      <span>Submit Form</span>
+      <span>Submit</span>
     </button>
   </form>
   <Modal :visible="submitted" @close="closeModal">
@@ -196,10 +196,12 @@ form {
   max-width: 400px;
   margin: auto;
   width: 50%;
+  align-items: center;
 }
 
 .formDiv {
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .formDiv label {
@@ -218,23 +220,23 @@ select {
 }
 
 button {
-  font-size: 20px;
-  background: royalblue;
-  color: white;
-  padding: 0.7em 1em;
-  padding-left: 0.9em;
+  font-size: 18px;
+  background: #fcca46;
+  color: #403d39;
+  padding: 10px 15px;
+  padding-left: 15px;
   display: flex;
   align-items: center;
   border: none;
-  border-radius: 16px;
+  border-radius: 15px;
   overflow: hidden;
-  transition: all 0.2s;
+  transition: all 0.3s;
   cursor: pointer;
 }
 
 button span {
   display: block;
-  margin-left: 0.3em;
+  margin-left: 10px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -243,7 +245,7 @@ button:hover div {
 }
 
 button:hover #icon {
-  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  transform: translateX(1em) rotate(45deg) scale(1.1);
 }
 
 button:hover span {
