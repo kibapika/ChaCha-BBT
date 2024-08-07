@@ -6,34 +6,34 @@ export default {
       userInput: '',
       captchaMatch: false,
       showResult: false
-    };
+    }
   },
   mounted() {
-    this.refreshCaptcha();
+    this.refreshCaptcha()
   },
   methods: {
     refreshCaptcha() {
-      this.captcha = this.generateCaptcha();
-      this.userInput = '';
-      this.showResult = false;
-      this.captchaMatch = false;
-      this.$emit('captcha-validated', false);
+      this.captcha = this.generateCaptcha()
+      this.userInput = ''
+      this.showResult = false
+      this.captchaMatch = false
+      this.$emit('captcha-validated', false)
     },
     generateCaptcha() {
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      let captcha = '';
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+      let captcha = ''
       for (let i = 0; i < 6; i++) {
-        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length))
       }
-      return captcha;
+      return captcha
     },
     checkCaptcha() {
-      this.captchaMatch = this.userInput.toLowerCase() === this.captcha.toLowerCase();
-      this.showResult = true;
-      this.$emit('captcha-validated', this.captchaMatch);
+      this.captchaMatch = this.userInput.toLowerCase() === this.captcha.toLowerCase()
+      this.showResult = true
+      this.$emit('captcha-validated', this.captchaMatch)
     }
   }
-};
+}
 </script>
 
 <template>
@@ -43,7 +43,9 @@ export default {
       <div class="captcha-box">{{ captcha }}</div>
     </section>
     <section class="captchaSec2">
-      <input type="text" id="captchaInput" v-model="userInput" @input="checkCaptcha" />
+      <div class="inputDiv">
+        <input type="text" id="captchaInput" v-model="userInput" @input="checkCaptcha" />
+      </div>
       <button type="button" @click="refreshCaptcha">Refresh</button>
     </section>
     <span v-if="showResult" class="captcha-result">{{
@@ -60,10 +62,10 @@ export default {
   padding-top: 15px;
   padding-bottom: 15px;
   border-radius: 10px;
-  background-color: #ccc5b9;
+  background: linear-gradient(to bottom, #f9dec9, #fae1df);
   box-shadow:
-  0 4px 6px -1px rgb(0 0 0 / 0.1),
-  0 2px 4px -2px rgb(0 0 0 / 0.1);
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .captchaSec1 {
@@ -73,7 +75,6 @@ export default {
   align-items: center;
   justify-content: space-around;
   width: 80%;
-  
 }
 
 .captcha-box {
@@ -91,10 +92,31 @@ export default {
   width: 80%;
 }
 
+.inputDiv {
+  width: 65%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #fbd266, #8fb0a9);
+  border-radius: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
 #captchaInput {
-  width: 60%;
-  background: none;
+  width: 95%;
+  height: 25px;
   border: none;
+  outline: none;
+  caret-color: #eb5e28;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  padding-left: 15px;
+  letter-spacing: 0.8px;
+  color: rgb(19, 19, 19);
+  font-size: 13.4px;
 }
 
 .captcha-result {
