@@ -17,10 +17,10 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import { OhVueIcon, addIcons } from 'oh-vue-icons';
-import { BiFacebook, BiTwitter, BiInstagram, BiTiktok, HiMail, RiBearSmileLine, BiHeart, CoSad } from "oh-vue-icons/icons";
+import { BiFacebook, BiTwitter, BiInstagram, BiTiktok, HiMail, RiBearSmileLine, BiHeart, CoSad, BiSendFill } from "oh-vue-icons/icons";
 
 // Add the icons
-addIcons(BiFacebook, BiTwitter, BiInstagram, BiTiktok, HiMail, RiBearSmileLine, BiHeart, CoSad);
+addIcons(BiFacebook, BiTwitter, BiInstagram, BiTiktok, HiMail, RiBearSmileLine, BiHeart, CoSad, BiSendFill);
 
 const app = createApp(App);
 
