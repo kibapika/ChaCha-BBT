@@ -92,6 +92,27 @@ export default {
   width: 80%;
 }
 
+.captchaSec2 button {
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 1.1em;
+  cursor: pointer;
+  padding: 9px 15px;
+  background-color: #fffcf2;
+  transition: box-shadow ease-in-out 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.captchaSec2 button:hover {
+  box-shadow: var(--hover-shadows);
+}
+
+.captchaSec2 button:active {
+  background-color: #fbd266;
+  transform: scale(0.95);
+}
+
 .inputDiv {
   width: 65%;
   height: 35px;
