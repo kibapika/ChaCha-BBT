@@ -82,6 +82,7 @@ export default {
   text-decoration: underline #eb5e28 2px;
   text-underline-offset: 6px;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .captchaSec2 {

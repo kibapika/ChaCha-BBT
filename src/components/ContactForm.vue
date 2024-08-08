@@ -156,8 +156,8 @@ export default {
       ></textarea>
     </div>
     <div class="formDiv">
-      <CustomCaptcha ref="captcha" @captcha-validated="handleCaptchaValidation" />
       <span v-if="!isCaptchaValid" class="error">Please complete the CAPTCHA.</span>
+      <CustomCaptcha ref="captcha" @captcha-validated="handleCaptchaValidation" />
     </div>
     <button type="submit" :disabled="!isFormValid">
       <div>
@@ -212,11 +212,28 @@ form {
 input,
 textarea,
 select {
+  background-color: white;
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  border: 1px solid #ccc;
+  padding: 8px;
+  margin-top: 8px;
   border-radius: 4px;
+  font-size: 13.4px;
+  border: none;
+  border-bottom: 1.25px solid #ccc5b9;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+input:hover, textarea:hover, select:hover {
+  transition: box-shadow ease-in-out 0.3s;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+  border-color: #ccc5b9;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border: 1px solid #ccc5b9;
+  transition: box-shadow ease-in-out 0.3s;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
 }
 
 button {
@@ -232,6 +249,7 @@ button {
   overflow: hidden;
   transition: all 0.3s;
   cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
 }
 
 button span {
