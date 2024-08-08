@@ -35,32 +35,38 @@ export default {
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 60px;
+    padding-top: 200px;
   }
   
   .modal-content {
     background-color: #fefefe;
     margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 8px 16px;
+    border: 1px solid #ccc5b9;
     width: 80%;
     max-width: 500px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
   }
   
   .close {
     color: #aaa;
-    float: right;
-    font-size: 28px;
+    font-size: 40px;
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+  .close:hover {
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .close:active {
+    color: #eb5e28;
   }
   </style>
   
