@@ -14,7 +14,8 @@
     "@unhead/vue": "^1.9.16",
     "oh-vue-icons": "^1.0.0-rc3",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vue3-google-map": "^0.21.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
