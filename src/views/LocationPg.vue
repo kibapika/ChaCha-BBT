@@ -1,12 +1,14 @@
 <script setup>
 import GoogleMap from '../components/GoogleMap.vue'
+import StoreLocator from '../components/StoreLocator.vue'
 </script>
 
 <template>
   <section class="titleBox">
     <h1 class="menuTitle">Locations</h1>
   </section>
-  <section>
+  <section class="googleMaps">
+    <StoreLocator />
     <GoogleMap />
   </section>
 </template>
@@ -27,5 +29,11 @@ import GoogleMap from '../components/GoogleMap.vue'
   display: flex;
   align-items: center;
   color: white;
+}
+
+.googleMaps {
+    display: flex;
+    flex-direction: row;
+    
 }
 </style>
