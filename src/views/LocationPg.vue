@@ -1,6 +1,10 @@
 <script setup>
+import { defineComponent, ref } from 'vue'
 import GoogleMap from '../components/GoogleMap.vue'
-import StoreLocator from '../components/StoreLocator.vue'
+import StoreList from '../components/StoreList.vue'
+
+
+
 </script>
 
 <template>
@@ -8,7 +12,7 @@ import StoreLocator from '../components/StoreLocator.vue'
     <h1 class="menuTitle">Locations</h1>
   </section>
   <section class="googleMaps">
-    <StoreLocator />
+    <StoreList />
     <GoogleMap />
   </section>
 </template>
@@ -34,6 +38,6 @@ import StoreLocator from '../components/StoreLocator.vue'
 .googleMaps {
     display: flex;
     flex-direction: row;
-    
+
 }
 </style>

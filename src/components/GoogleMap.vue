@@ -41,15 +41,16 @@ export default defineComponent({
 
     const selectedStore = ref(null)
 
+    const openInfoWindow = (store) => {
+      console.log('clicked')
+      selectedStore.value = store
+      console.log(selectedStore.value.position)
+    }
+
     // const openInfoWindow = (store) => {
-    //   console.log('clicked')
+    //   alert(JSON.stringify(store)) // Check if correct store data is passed
     //   selectedStore.value = store
     // }
-
-    const openInfoWindow = (store) => {
-      alert(JSON.stringify(store)) // Check if correct store data is passed
-      selectedStore.value = store
-    }
 
     return { center, stores, selectedStore, openInfoWindow }
   }
@@ -70,10 +71,17 @@ export default defineComponent({
       @click="openInfoWindow(store)"
     />
 
-    <InfoWindow :position="{ lat: 40.7128, lng: -74.006 }" @closeclick="selectedStore = null">
+    <!-- <InfoWindow :options="{ position: { lat: 40.63061, lng: -73.935242 } }" /> -->
+
+    <InfoWindow
+      v-if="selectedStore"
+      :key="selectedStore.position"
+      :options="{ position: selectedStore.position }"
+      @closeclick="selectedStore = null"
+    >
       <div>
-        <h3>Static Store</h3>
-        <p>This is a static position test.</p>
+        <h3>{{ selectedStore.name }}</h3>
+        <p>{{ selectedStore.description }}</p>
       </div>
     </InfoWindow>
   </GoogleMap>
