@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 import { defineComponent, ref } from 'vue'
 import { GoogleMap, InfoWindow, Marker } from 'vue3-google-map'
 
@@ -71,7 +71,7 @@ export default defineComponent({
       @click="openInfoWindow(store)"
     />
 
-    <!-- <InfoWindow :options="{ position: { lat: 40.63061, lng: -73.935242 } }" /> -->
+    <InfoWindow :options="{ position: { lat: 40.63061, lng: -73.935242 } }" />
 
     <InfoWindow
       v-if="selectedStore"
@@ -79,6 +79,49 @@ export default defineComponent({
       :options="{ position: selectedStore.position }"
       @closeclick="selectedStore = null"
     >
+      <div>
+        <h3>{{ selectedStore.name }}</h3>
+        <p>{{ selectedStore.description }}</p>
+      </div>
+    </InfoWindow>
+  </GoogleMap>
+</template> -->
+
+<script setup>
+import { ref, watch } from 'vue'
+import { GoogleMap, InfoWindow, Marker } from 'vue3-google-map'
+
+const props = defineProps({
+  stores: Array,
+  selectedStore: Object
+})
+
+const mapCenter = ref({ lat: 40.7128, lng: -74.006 })
+
+watch(
+  () => props.selectedStore,
+  (newVal) => {
+    if (newVal) {
+      mapCenter.value = newVal.position
+    }
+  }
+)
+</script>
+
+<template>
+  <GoogleMap
+    api-key="YOUR_GOOGLE_MAPS_API_KEY"
+    style="width: 100%; height: 500px"
+    :center="mapCenter"
+    :zoom="13"
+  >
+    <Marker
+      v-for="(store, index) in stores"
+      :key="index"
+      :options="{ position: store.position, label: store.label }"
+      @click="$emit('store-selected', store)"
+    />
+    <InfoWindow v-if="selectedStore" :position="selectedStore.position">
       <div>
         <h3>{{ selectedStore.name }}</h3>
         <p>{{ selectedStore.description }}</p>
