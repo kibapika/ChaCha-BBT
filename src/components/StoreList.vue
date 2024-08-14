@@ -59,6 +59,7 @@ export default defineComponent({
 
 <template>
   <section class="storeSec">
+    <h1>Store List</h1>
     <div class="store-list">
       <ul>
         <li v-for="(store, index) in stores" :key="index">

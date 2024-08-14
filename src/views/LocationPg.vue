@@ -40,6 +40,7 @@ const selectedStore = ref(null)
 
 const handleStoreSelected = (store) => {
   selectedStore.value = store
+  console.log(selectedStore.value)
 }
 </script>
 
@@ -49,7 +50,11 @@ const handleStoreSelected = (store) => {
   </section>
   <section class="googleMaps">
     <StoreList :stores="stores" @store-selected="handleStoreSelected" />
-    <GoogleMap :stores="stores" :selectedStore="selectedStore" />
+    <GoogleMap
+      :stores="stores"
+      :selectedStore="selectedStore"
+      @store-selected="handleStoreSelected"
+    />
   </section>
 </template>
 

@@ -91,13 +91,18 @@ export default defineComponent({
 import { ref, watch } from 'vue'
 import { GoogleMap, InfoWindow, Marker } from 'vue3-google-map'
 
+// Props to receive the list of stores and the selected store
 const props = defineProps({
   stores: Array,
-  selectedStore: Object
+  selectedStore: Object,
 })
 
+// Local state to manage the map's center position
 const mapCenter = ref({ lat: 40.7128, lng: -74.006 })
 
+const emit = defineEmits(['store-selected'])
+
+// Watch for changes in the selected store to update the map's center position
 watch(
   () => props.selectedStore,
   (newVal) => {
@@ -106,22 +111,35 @@ watch(
     }
   }
 )
+
+// Emit event when a marker is clicked to update the selected store
+const handleMarkerClick = (store) => {
+  mapCenter.value = store.position
+  // Emit the store-selected event to the parent component
+  emit('store-selected', store)
+}
 </script>
 
 <template>
   <GoogleMap
-    api-key="YOUR_GOOGLE_MAPS_API_KEY"
+    api-key="AIzaSyDZlnFNPmm6Ear2-Iot0wqb6htn3s_bZ7c"
     style="width: 100%; height: 500px"
     :center="mapCenter"
     :zoom="13"
   >
-    <Marker
-      v-for="(store, index) in stores"
-      :key="index"
-      :options="{ position: store.position, label: store.label }"
-      @click="$emit('store-selected', store)"
-    />
-    <InfoWindow v-if="selectedStore" :position="selectedStore.position">
+
+  <Marker
+  v-for="(store, index) in stores"
+  :key="index"
+  :options="{ position: store.position, label: store.label }"
+  @click="handleMarkerClick(store)"
+/>
+
+<InfoWindow
+      v-if="selectedStore"
+      :position="selectedStore.position"
+      :options="{ position: selectedStore.position }"
+    >
       <div>
         <h3>{{ selectedStore.name }}</h3>
         <p>{{ selectedStore.description }}</p>
