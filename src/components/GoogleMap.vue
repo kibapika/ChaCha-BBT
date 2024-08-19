@@ -5,7 +5,7 @@ import { GoogleMap, InfoWindow, Marker } from 'vue3-google-map'
 // Props to receive the list of stores and the selected store
 const props = defineProps({
   stores: Array,
-  selectedStore: Object,
+  selectedStore: Object
 })
 
 // Local state to manage the map's center position
@@ -38,23 +38,27 @@ const handleMarkerClick = (store) => {
     :center="mapCenter"
     :zoom="13"
   >
+    <Marker
+      v-for="(store, index) in stores"
+      :key="index"
+      :options="{ position: store.position, label: store.label }"
+      @click="handleMarkerClick(store)"
+    />
 
-  <Marker
-  v-for="(store, index) in stores"
-  :key="index"
-  :options="{ position: store.position, label: store.label }"
-  @click="handleMarkerClick(store)"
-/>
-
-<InfoWindow
+    <InfoWindow
       v-if="selectedStore"
       :position="selectedStore.position"
       :options="{ position: selectedStore.position }"
     >
       <div>
         <h3>{{ selectedStore.name }}</h3>
-        <span>{{selectedStore.phone}}</span>
+        <span>{{ selectedStore.phone }}</span>
         <p>{{ selectedStore.description }}</p>
+        <ul>
+          <li v-for="(hour, index) in selectedStore.hours" :key="index">
+            {{ hour }}
+          </li>
+        </ul>
       </div>
     </InfoWindow>
   </GoogleMap>

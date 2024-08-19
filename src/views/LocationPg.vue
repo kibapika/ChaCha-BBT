@@ -8,7 +8,7 @@ const stores = [
     position: { lat: 40.73061, lng: -73.935242 },
     name: 'Bubble Bay Plaza',
     phone: '(555) 123-4567',
-    hours: '10AM - 11PM',
+    hours: ['Mon - Thurs 12:00 PM - 9:30 PM', 'Fri - Sat 10:00 AM - 11:00 PM', 'Sun 10:00 AM - 10:00 PM'],
     address: '789 Jasmine Street, Brewtown, NY 10001',
     description: 'This is Store 1 located in New York City.',
     label: {
@@ -21,7 +21,7 @@ const stores = [
     position: { lat: 40.712776, lng: -74.005974 },
     name: 'Tea Garden Center',
     phone: '(555) 234-5678',
-    hours: '456 Pearl Avenue, Bubble Bay, CA 90210',
+    hours: 'TBD',
     address: '789 Jasmine Street, Brewtown, NY 10001',
     description: 'This is Store 2 located in New York City.',
     label: {
