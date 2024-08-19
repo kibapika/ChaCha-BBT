@@ -21,7 +21,7 @@ const stores = [
     position: { lat: 40.712776, lng: -74.005974 },
     name: 'Tea Garden Center',
     phone: '(555) 234-5678',
-    hours: 'TBD',
+    hours: ['TBD'],
     address: '789 Jasmine Street, Brewtown, NY 10001',
     description: 'This is Store 2 located in New York City.',
     label: {
@@ -34,7 +34,7 @@ const stores = [
     position: { lat: 40.758896, lng: -73.98513 },
     name: 'Oolong Oasis Mall',
     phone: '(555) 345-6789',
-    hours: 'TBD',
+    hours: ['TBD'],
     address: '321 Matcha Lane, Tea Ville, TX 73301',
     description: 'This is Store 3 located in New York City.',
     label: {

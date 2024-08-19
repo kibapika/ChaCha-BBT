@@ -5,7 +5,7 @@ export default defineComponent({
   props: {
     stores: {
       type: Array,
-      required: true,
+      required: true
     }
   },
   setup(props, { emit }) {
@@ -13,7 +13,12 @@ export default defineComponent({
       emit('store-selected', store)
     }
 
-    return { selectStore }
+    const getDirectionsUrl = (store) => {
+      const { lat, lng } = store.position
+      return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`
+    }
+
+    return { selectStore, getDirectionsUrl }
   }
 })
 </script>
@@ -25,6 +30,9 @@ export default defineComponent({
       <ul>
         <li v-for="(store, index) in stores" :key="index">
           <a href="#" @click.prevent="selectStore(store)">{{ store.name }}</a>
+          <button @click.prevent="window.open(getDirectionsUrl(store), '_blank')">
+            Directions
+          </button>
         </li>
       </ul>
     </div>
