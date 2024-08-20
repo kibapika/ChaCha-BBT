@@ -26,20 +26,40 @@ export default defineComponent({
 
 <template>
   <section class="storeSec">
-    <h1>Store List</h1>
-    <div class="store-list">
-      <ul>
-        <li v-for="(store, index) in stores" :key="index">
-          <a href="#" @click.prevent="selectStore(store)">{{ store.name }}</a>
-          <button @click.prevent="openDirections(store)">Directions</button>
-        </li>
-      </ul>
-    </div>
+    <ul class="storeList">
+      <li class="eachStore" v-for="(store, index) in stores" :key="index">
+        <a href="#" @click.prevent="selectStore(store)">{{ store.name }}</a>
+        <button @click.prevent="openDirections(store)">Directions</button>
+      </li>
+    </ul>
   </section>
 </template>
 
 <style scoped>
 .storeSec {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.storeList {
+  height: 500px;
+  list-style: none;
+  border: 1.5px solid #ccc5b9;
+  border-radius: 10px 10px 0px 0px;
+  margin: 10px 10px 0px 10px;
+  padding: 0;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.eachStore{
+  border-bottom: 1px solid #ccc5b9;
+  padding: 0px 10px 0px 10px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 </style>

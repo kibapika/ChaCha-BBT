@@ -9,7 +9,7 @@ const props = defineProps({
 })
 
 // Local state to manage the map's center position
-const mapCenter = ref({ lat: 40.7128, lng: -74.006 })
+const mapCenter = ref({ lat: 40.7458, lng: -73.985 })
 
 const emit = defineEmits(['store-selected'])
 
@@ -35,8 +35,9 @@ const handleMarkerClick = (store) => {
   <GoogleMap
     api-key="AIzaSyDZlnFNPmm6Ear2-Iot0wqb6htn3s_bZ7c"
     style="width: 100%; height: 500px"
+    class="googleMap"
     :center="mapCenter"
-    :zoom="13"
+    :zoom="12"
   >
     <Marker
       v-for="(store, index) in stores"
@@ -53,13 +54,18 @@ const handleMarkerClick = (store) => {
       <div>
         <h3>{{ selectedStore.name }}</h3>
         <span>{{ selectedStore.phone }}</span>
-        <p>{{ selectedStore.description }}</p>
         <ul>
           <li v-for="(hour, index) in selectedStore.hours" :key="index">
-            {{ hour }}
+            {{ hour }}xw
           </li>
         </ul>
       </div>
     </InfoWindow>
   </GoogleMap>
 </template>
+
+<style scoped>
+.googleMap {
+    margin-top: 10px;
+}
+</style>
