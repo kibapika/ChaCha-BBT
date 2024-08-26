@@ -28,12 +28,14 @@ export default defineComponent({
   <section class="storeSec">
     <ul class="storeList">
       <li class="eachStore" v-for="(store, index) in stores" :key="index">
-        <ul class="storeInfo">
-          <li>
-            <a href="#" @click.prevent="selectStore(store)">{{ store.name }}</a>
-          </li>
-          <li><button @click.prevent="openDirections(store)">Directions</button></li>
-        </ul>
+        <a href="#" @click.prevent="selectStore(store)">
+          <ul class="storeInfo">
+            <li>{{ store.name }}</li>
+            <li>{{ store.address }}</li>
+            <li>{{ store.phone }}</li>
+            <li><button @click.prevent="openDirections(store)">Directions</button></li>
+          </ul>
+        </a>
       </li>
     </ul>
   </section>
