@@ -28,8 +28,12 @@ export default defineComponent({
   <section class="storeSec">
     <ul class="storeList">
       <li class="eachStore" v-for="(store, index) in stores" :key="index">
-        <a href="#" @click.prevent="selectStore(store)">{{ store.name }}</a>
-        <button @click.prevent="openDirections(store)">Directions</button>
+        <ul class="storeInfo">
+          <li>
+            <a href="#" @click.prevent="selectStore(store)">{{ store.name }}</a>
+          </li>
+          <li><button @click.prevent="openDirections(store)">Directions</button></li>
+        </ul>
       </li>
     </ul>
   </section>
@@ -54,12 +58,14 @@ export default defineComponent({
   overflow-y: scroll;
 }
 
-.eachStore{
+.eachStore {
   border-bottom: 1px solid #ccc5b9;
-  padding: 0px 10px 0px 10px;
+  padding: 10px 10px 10px 10px;
   height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+}
+
+.storeInfo {
+  list-style: none;
+  padding: 0;
 }
 </style>

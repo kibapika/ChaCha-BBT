@@ -55,8 +55,8 @@ const handleMarkerClick = (store) => {
         <h3>{{ selectedStore.name }}</h3>
         <span>{{ selectedStore.phone }}</span>
         <ul>
-          <li v-for="(hour, index) in selectedStore.hours" :key="index">
-            {{ hour }}xw
+          <li v-for="(hours, index) in selectedStore.hours" :key="index">
+            {{ hours }}
           </li>
         </ul>
       </div>
