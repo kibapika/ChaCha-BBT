@@ -66,6 +66,14 @@ export default defineComponent({
   height: 150px;
 }
 
+.eachStore:hover {
+  background-color: rgba(204, 197, 185, 0.3);
+  transition: 0.3s ease;
+}
+
+.eachStore a:hover {
+  color: #403d39;
+}
 .storeInfo {
   list-style: none;
   padding: 0;
