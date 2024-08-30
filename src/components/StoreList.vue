@@ -31,9 +31,21 @@ export default defineComponent({
         <a href="#" @click.prevent="selectStore(store)">
           <ul class="storeInfo">
             <li>{{ store.name }}</li>
-            <li>{{ store.address }}</li>
-            <li>{{ store.phone }}</li>
-            <li><button @click.prevent="openDirections(store)">Directions</button></li>
+            <li>
+              <v-icon class="icon" hover scale="1" name="hi-location-marker" /> {{ store.address }}
+            </li>
+            <li><v-icon class="icon" hover scale="1" name="bi-phone" />{{ store.phone }}</li>
+            <li>
+              <ul>
+                <li v-for="(hour, idx) in store.hours" :key="idx">
+                  {{ hour }}
+                </li>
+              </ul>
+            </li>
+            <section>
+              <li><button @click.prevent="openDirections(store)">Directions</button></li>
+              <li><button>Veiw Store</button></li>
+            </section>
           </ul>
         </a>
       </li>
@@ -77,5 +89,10 @@ export default defineComponent({
 .storeInfo {
   list-style: none;
   padding: 0;
+}
+
+.storeInfo section {
+  display: flex;
+  flex-direction: row;
 }
 </style>
