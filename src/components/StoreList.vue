@@ -36,6 +36,7 @@ export default defineComponent({
             </li>
             <li><v-icon class="icon" hover scale="1" name="bi-phone" />{{ store.phone }}</li>
             <li>
+              <v-icon class="icon" hover scale="1" name="md-accesstime" /> 
               <ul>
                 <li v-for="(hour, idx) in store.hours" :key="idx">
                   {{ hour }}
@@ -54,6 +55,10 @@ export default defineComponent({
 </template>
 
 <style scoped>
+ul {
+  list-style: none;
+}
+
 .storeSec {
   width: 50%;
   display: flex;
@@ -63,7 +68,6 @@ export default defineComponent({
 
 .storeList {
   height: 500px;
-  list-style: none;
   border: 1.5px solid #ccc5b9;
   border-radius: 10px 10px 0px 0px;
   margin: 10px 10px 0px 10px;
@@ -75,7 +79,6 @@ export default defineComponent({
 .eachStore {
   border-bottom: 1px solid #ccc5b9;
   padding: 10px 10px 10px 10px;
-  height: 150px;
 }
 
 .eachStore:hover {
@@ -87,12 +90,17 @@ export default defineComponent({
   color: #403d39;
 }
 .storeInfo {
-  list-style: none;
   padding: 0;
+}
+
+.storeInfo li {
+padding-bottom: 5px;
 }
 
 .storeInfo section {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
 }
 </style>
