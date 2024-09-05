@@ -35,8 +35,8 @@ export default defineComponent({
               <v-icon class="icon" hover scale="1" name="hi-location-marker" /> {{ store.address }}
             </li>
             <li><v-icon class="icon" hover scale="1" name="bi-phone" />{{ store.phone }}</li>
-            <li>
-              <v-icon class="icon" hover scale="1" name="md-accesstime" /> 
+            <li class="hoursLI">
+              <v-icon class="icon" hover scale="1" name="md-accesstime" />
               <ul>
                 <li v-for="(hour, idx) in store.hours" :key="idx">
                   {{ hour }}
@@ -44,8 +44,10 @@ export default defineComponent({
               </ul>
             </li>
             <section>
-              <li><button @click.prevent="openDirections(store)">Directions</button></li>
-              <li><button>Veiw Store</button></li>
+              <li>
+                <button class="btn1" @click.prevent="openDirections(store)">Directions</button>
+              </li>
+              <li><button class="btn2">Veiw Store</button></li>
             </section>
           </ul>
         </a>
@@ -68,7 +70,7 @@ ul {
 
 .storeList {
   height: 500px;
-  border: 1.5px solid #ccc5b9;
+  border: 2px solid #ccc5b9;
   border-radius: 10px 10px 0px 0px;
   margin: 10px 10px 0px 10px;
   padding: 0;
@@ -94,7 +96,7 @@ ul {
 }
 
 .storeInfo li {
-padding-bottom: 5px;
+  padding-bottom: 5px;
 }
 
 .storeInfo section {
@@ -102,5 +104,42 @@ padding-bottom: 5px;
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
+}
+
+.hoursLI {
+  display: flex;
+  flex-direction: row;
+}
+
+.hoursLI ul {
+  padding: 0;
+  margin-left: 5px;
+}
+
+button {
+  font-size: 15px;
+  color: #403d39;
+  padding: 10px 15px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.btn1 {
+  background: #fcca46;
+}
+
+.btn2 {
+  background: #9fb1bc;
 }
 </style>
