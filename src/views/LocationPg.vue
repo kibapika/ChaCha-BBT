@@ -9,9 +9,9 @@ const stores = [
     name: 'Bubble Bay Plaza',
     phone: '(555) 123-4567',
     hours: [
-      'Mon - Thurs 12:00 PM - 9:30 PM',
-      'Fri - Sat 10:00 AM - 11:00 PM',
-      'Sun 10:00 AM - 10:00 PM'
+      'Mon - Thurs: 12:00 PM - 9:30 PM',
+      'Fri - Sat: 10:00 AM - 11:00 PM',
+      'Sun 10:00: AM - 10:00 PM'
     ],
     address: '789 Jasmine Street, Brewtown, NY 10001',
     label: {

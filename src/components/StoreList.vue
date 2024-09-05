@@ -30,7 +30,7 @@ export default defineComponent({
       <li class="eachStore" v-for="(store, index) in stores" :key="index">
         <a href="#" @click.prevent="selectStore(store)">
           <ul class="storeInfo">
-            <li>{{ store.name }}</li>
+            <li class="storeName">{{ store.name }}</li>
             <li>
               <v-icon class="icon" hover scale="1" name="hi-location-marker" /> {{ store.address }}
             </li>
@@ -80,7 +80,7 @@ ul {
 
 .eachStore {
   border-bottom: 1px solid #ccc5b9;
-  padding: 10px 10px 10px 10px;
+  padding: 0px 18px 0px 18px;
 }
 
 .eachStore:hover {
@@ -96,14 +96,21 @@ ul {
 }
 
 .storeInfo li {
-  padding-bottom: 5px;
+padding-bottom: 8px;
 }
 
 .storeInfo section {
   display: flex;
   flex-direction: row;
   width: 100%;
+  height: 100%;
   justify-content: space-around;
+}
+
+.storeName {
+  font-size: 22px;
+  font-weight: 500;
+  color: #ea591f;
 }
 
 .hoursLI {
