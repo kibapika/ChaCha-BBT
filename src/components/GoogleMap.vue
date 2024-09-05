@@ -66,6 +66,6 @@ const handleMarkerClick = (store) => {
 
 <style scoped>
 .googleMap {
-    margin-top: 10px;
+    margin-top: 0px;
 }
 </style>

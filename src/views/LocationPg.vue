@@ -100,6 +100,6 @@ const handleStoreSelected = (store) => {
 
 .googleMaps {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 </style>

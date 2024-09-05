@@ -31,7 +31,7 @@ export default defineComponent({
         <a href="#" @click.prevent="selectStore(store)">
           <ul class="storeInfo">
             <li class="storeName">{{ store.name }}</li>
-            <li>
+            <li class="storeAddress">
               <v-icon class="icon" hover scale="1" name="hi-location-marker" /> {{ store.address }}
             </li>
             <li><v-icon class="icon" hover scale="1" name="bi-phone" />{{ store.phone }}</li>
@@ -71,8 +71,6 @@ ul {
 .storeList {
   height: 500px;
   border: 2px solid #ccc5b9;
-  border-radius: 10px 10px 0px 0px;
-  margin: 10px 10px 0px 10px;
   padding: 0;
   overflow: hidden;
   overflow-y: scroll;
@@ -111,6 +109,10 @@ padding-bottom: 8px;
   font-size: 22px;
   font-weight: 500;
   color: #ea591f;
+}
+
+.storeAddress {
+  font-weight: 600;
 }
 
 .hoursLI {
