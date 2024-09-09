@@ -29,6 +29,12 @@ const handleMarkerClick = (store) => {
   // Emit the store-selected event to the parent component
   emit('store-selected', store)
 }
+
+const openDirections = (store) => {
+  const { lat, lng } = store.position
+  const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`
+  window.open(url, '_blank')
+}
 </script>
 
 <template>
@@ -51,14 +57,24 @@ const handleMarkerClick = (store) => {
       :position="selectedStore.position"
       :options="{ position: selectedStore.position }"
     >
-      <div>
+      <div class="infoDiv">
         <h3>{{ selectedStore.name }}</h3>
-        <span>{{ selectedStore.phone }}</span>
+        <span>
+          <v-icon class="icon" hover scale="1" name="hi-location-marker" />
+          {{ selectedStore.address }}</span
+        >
+        <span
+          ><v-icon class="icon" hover scale="1" name="bi-phone" /> {{ selectedStore.phone }}</span
+        >
         <ul>
           <li v-for="(hours, index) in selectedStore.hours" :key="index">
             {{ hours }}
           </li>
         </ul>
+        <section>
+          <button class="btn1" @click.prevent="openDirections(selectedStore)">Directions</button>
+          <button class="btn2">Veiw Store</button>
+        </section>
       </div>
     </InfoWindow>
   </GoogleMap>
@@ -66,6 +82,77 @@ const handleMarkerClick = (store) => {
 
 <style scoped>
 .googleMap {
-    margin-top: 0px;
+  margin-top: 0px;
+}
+
+::v-deep .gm-style .gm-style-iw-c {
+  flex-direction: row-reverse !important;
+}
+
+.infoDiv {
+  padding-top: 12px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.infoDiv h3 {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.infoDiv span {
+  font-size: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 23px;
+  font-size: 14px;
+}
+
+li {
+  padding-bottom: 8px;
+}
+
+.icon {
+  color: #ea591f;
+}
+
+.infoDiv section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  font-size: 15px;
+  color: #403d39;
+  height: 33px;
+  padding: 0px 23px;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.btn1 {
+  background: #fcca46;
+}
+
+.btn2 {
+  background: #9fb1bc;
 }
 </style>

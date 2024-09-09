@@ -44,10 +44,8 @@ export default defineComponent({
               </ul>
             </li>
             <section>
-              <li>
-                <button class="btn1" @click.prevent="openDirections(store)">Directions</button>
-              </li>
-              <li><button class="btn2">Veiw Store</button></li>
+              <button class="btn1" @click.prevent="openDirections(store)">Directions</button>
+              <button class="btn2">Veiw Store</button>
             </section>
           </ul>
         </a>
@@ -94,7 +92,7 @@ ul {
 }
 
 .storeInfo li {
-padding-bottom: 8px;
+  padding-bottom: 8px;
 }
 
 .storeInfo section {
@@ -129,7 +127,6 @@ button {
   font-size: 15px;
   color: #403d39;
   padding: 10px 15px;
-  padding-left: 15px;
   display: flex;
   align-items: center;
   border: none;
