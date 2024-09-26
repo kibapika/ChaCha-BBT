@@ -45,7 +45,11 @@ export default defineComponent({
             </li>
             <section>
               <button class="btn1" @click.prevent="openDirections(store)">Directions</button>
-              <button class="btn2">Veiw Store</button>
+              <button class="btn2">
+                <router-link :to="'/location/' + encodeURIComponent(store.name)">{{
+                  store.name
+                }}</router-link>
+              </button>
             </section>
           </ul>
         </a>

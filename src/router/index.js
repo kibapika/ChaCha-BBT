@@ -4,6 +4,7 @@ import Home from '../views/HomePg.vue'
 import Menu from '../views/MenuPg.vue'
 import Contact from '../views/ContactPg.vue'
 import Location from '../views/LocationPg.vue'
+import StoreDetail from '../views/StoreDetail.vue'
 import PNF from '../views/PNF.vue'
 import Privacy from '../views/PrivacyPg.vue'
 
@@ -39,6 +40,13 @@ const routes = [
     name: 'Location',
     component: Location
   },
+  {
+    path: '/location/:storeName',
+    name: 'StoreDetail',
+    component: StoreDetail,
+    props: true
+  }
+  ,
   {
     path: '/privacy-policy',
     name: 'Privacy-Policy',
