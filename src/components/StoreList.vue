@@ -46,7 +46,7 @@ export default defineComponent({
             <section>
               <button class="btn1" @click.prevent="openDirections(store)">Directions</button>
               <button class="btn2">
-                <router-link :to="'/location/' + encodeURIComponent(store.name)">{{
+                <router-link :to="'/location/' + store.name"  >{{
                   store.name
                 }}</router-link>
               </button>

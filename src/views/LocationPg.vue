@@ -1,10 +1,11 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, provide } from 'vue'
 import GoogleMap from '../components/GoogleMap.vue'
 import StoreList from '../components/StoreList.vue'
 
 const stores = [
   {
+    id: 1,
     position: { lat: 40.73061, lng: -73.935242 },
     name: 'Bubble Bay Plaza',
     phone: '(555) 123-4567',
@@ -21,6 +22,7 @@ const stores = [
     }
   },
   {
+    id: 2,
     position: { lat: 40.712776, lng: -74.005974 },
     name: 'Tea Garden Center',
     phone: '(555) 234-5678',
@@ -33,6 +35,7 @@ const stores = [
     }
   },
   {
+    id: 3,
     position: { lat: 40.758896, lng: -73.98513 },
     name: 'Oolong Oasis Mall',
     phone: '(555) 345-6789',
@@ -45,6 +48,7 @@ const stores = [
     }
   },
   {
+    id: 4,
     position: { lat: 40.778896, lng: -73.98513 },
     name: 'Oolong Oasis Mall',
     phone: '(555) 345-6789',
@@ -57,6 +61,12 @@ const stores = [
     }
   }
 ]
+
+const message = ("hello")
+
+provide ('message', message)
+
+provide('stores', stores)
 
 const selectedStore = ref(null)
 
