@@ -41,7 +41,7 @@ const routes = [
     component: Location
   },
   {
-    path: '/location/:storeName',
+    path: '/location/:storeId',
     name: 'StoreDetail',
     component: StoreDetail,
     props: true

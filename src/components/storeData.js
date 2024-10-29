@@ -1,9 +1,6 @@
-<script setup>
-import { ref, provide } from 'vue'
-import GoogleMap from '../components/GoogleMap.vue'
-import StoreList from '../components/StoreList.vue'
+import { ref } from 'vue'
 
-const stores = [
+export const stores = ref([
   {
     id: 1,
     position: { lat: 40.73061, lng: -73.935242 },
@@ -60,53 +57,4 @@ const stores = [
       fontWeight: 'bold'
     }
   }
-]
-
-provide('message', "hello")
-provide('stores', stores)
-
-const selectedStore = ref(null)
-
-const handleStoreSelected = (store) => {
-  selectedStore.value = store
-  console.log(selectedStore.value)
-}
-</script>
-
-<template>
-  <section class="titleBox">
-    <h1 class="menuTitle">Locations</h1>
-  </section>
-  <section class="googleMaps">
-    <StoreList :stores="stores" @store-selected="handleStoreSelected" />
-    <GoogleMap
-      :stores="stores"
-      :selectedStore="selectedStore"
-      @store-selected="handleStoreSelected"
-    />
-  </section>
-</template>
-
-<style scoped>
-.titleBox {
-  background-image: url('../assets/driedTea.jpg');
-  background-size: cover;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.menuTitle {
-  width: 80%;
-  height: 18dvh;
-  font-size: 55px;
-  display: flex;
-  align-items: center;
-  color: white;
-}
-
-.googleMaps {
-  display: flex;
-  flex-direction: row-reverse;
-}
-</style>
+])
