@@ -1,6 +1,4 @@
-import { ref } from 'vue'
-
-export const stores = ref([
+export const stores = [
   {
     id: 1,
     position: { lat: 40.73061, lng: -73.935242 },
@@ -57,4 +55,4 @@ export const stores = ref([
       fontWeight: 'bold'
     }
   }
-])
+]
