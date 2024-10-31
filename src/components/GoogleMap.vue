@@ -73,7 +73,9 @@ const openDirections = (store) => {
         </ul>
         <section>
           <button class="btn1" @click.prevent="openDirections(selectedStore)">Directions</button>
-          <button class="btn2">Veiw Store</button>
+          <button class="btn2">
+            <router-link :to="'/location/' + selectedStore.id">View Store</router-link>
+          </button>
         </section>
       </div>
     </InfoWindow>
