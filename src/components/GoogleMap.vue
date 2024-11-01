@@ -157,4 +157,8 @@ button:active {
 .btn2 {
   background: #9fb1bc;
 }
+
+a:hover {
+  color: #403d39;
+}
 </style>

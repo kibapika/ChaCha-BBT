@@ -15,27 +15,35 @@ console.log('Selected Store:', store.value)
 
 <template>
   <h1>StoreDetail Page</h1>
-  <div v-if="store">
+  <section v-if="store">
     <h1>{{ store.name }}</h1>
     <p>{{ store.address }}</p>
     <p>{{ store.phone }}</p>
     <ul>
       <li v-for="(hour, index) in store.hours" :key="index">{{ hour }}</li>
     </ul>
-  </div>
-  <p v-else>Store not found.</p>
-  <router-link class="btn" to="/location"><span>Back to Location</span></router-link>
+    <router-link class="btn" to="/location"><span>Back to Locations</span></router-link>
+  </section>
+  <section v-else>
+    <h1>Uh-oh!</h1>
+    <v-icon class="icon" scale="3" animation="wrench" name="co-sad" />
+    <h1>
+      We Couldn't Find This Store. Let's ChaCha Back to<router-link to="/location"
+        >Locations</router-link
+      >!
+    </h1>
+</section>
 </template>
 
 <style scoped>
 .btn {
   width: 15%;
   font-size: 15px;
-  text-align: center;
   color: #403d39;
   background-color: #fcca46;
   padding: 10px 15px;
   display: flex;
+  justify-content: center;
   align-items: center;
   border: none;
   border-radius: 12px;
@@ -45,7 +53,7 @@ console.log('Selected Store:', store.value)
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
 }
 
-.btn :active {
+.btn:active {
   transform: scale(0.95);
 }
 </style>
