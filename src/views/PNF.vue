@@ -6,7 +6,10 @@
       <h1>Oops!</h1>
       <v-icon class="icon" scale="3" animation="wrench" name="co-sad" />
     </div>
-    <h1>This Page is Lost in the Bubbles. Let's ChaCha Back to <router-link to="/home" class="link">Home</router-link>!</h1>
+    <h1>
+      This Page is Lost in the Bubbles. Let's ChaCha Back to
+      <router-link to="/home" class="link">Home</router-link>!
+    </h1>
   </section>
 </template>
 
@@ -28,17 +31,14 @@ h1 {
 }
 
 .link {
-    text-decoration: underline;
-    font-size: 45px;
-    font-weight: 500;
+  text-decoration: underline;
+  font-size: 45px;
+  font-weight: 500;
 }
 
 .oops {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 16%;
   align-items: center;
-  text-align: center;
+  gap: 10px;
 }
 </style>

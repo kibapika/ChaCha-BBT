@@ -14,8 +14,8 @@ console.log('Selected Store:', store.value)
 </script>
 
 <template>
-  <h1>StoreDetail Page</h1>
   <section v-if="store">
+    <h1>StoreDetail Page</h1>
     <h1>{{ store.name }}</h1>
     <p>{{ store.address }}</p>
     <p>{{ store.phone }}</p>
@@ -24,15 +24,16 @@ console.log('Selected Store:', store.value)
     </ul>
     <router-link class="btn" to="/location"><span>Back to Locations</span></router-link>
   </section>
-  <section v-else>
-    <h1>Uh-oh!</h1>
-    <v-icon class="icon" scale="3" animation="wrench" name="co-sad" />
+  <section v-else class="storeNFSec">
+    <div class="storeNF">
+      <h1>Uh-oh!</h1>
+      <v-icon class="icon" scale="3" animation="wrench" name="co-sad" />
+    </div>
     <h1>
-      We Couldn't Find This Store. Let's ChaCha Back to<router-link to="/location"
-        >Locations</router-link
-      >!
+      We Couldn't Find This Store. Let's ChaCha Back to
+      <router-link to="/location" class="storeNFLink">Locations</router-link>!
     </h1>
-</section>
+  </section>
 </template>
 
 <style scoped>
@@ -55,5 +56,33 @@ console.log('Selected Store:', store.value)
 
 .btn:active {
   transform: scale(0.95);
+}
+
+.storeNFSec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.storeNFSec h1 {
+  font-size: 45px;
+  font-weight: 500;
+  width: 70%;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.storeNF {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.storeNFLink {
+  text-decoration: underline;
+  font-size: 45px;
+  font-weight: 500;
 }
 </style>
