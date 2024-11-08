@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { stores } from '../components/storeData'
+import cafeInterior from '../assets/cafeInterior.jpg'
 
 const route = useRoute()
 const storeId = route.params.storeId
@@ -14,15 +15,17 @@ console.log('Selected Store:', store.value)
 </script>
 
 <template>
-  <section v-if="store">
-    <h1>StoreDetail Page</h1>
-    <h1>{{ store.name }}</h1>
-    <p>{{ store.address }}</p>
-    <p>{{ store.phone }}</p>
-    <ul>
-      <li v-for="(hour, index) in store.hours" :key="index">{{ hour }}</li>
-    </ul>
-    <router-link class="btn" to="/location"><span>Back to Locations</span></router-link>
+  <section v-if="store" class="storeDetailSec">
+    <div class="storeDetailDiv">
+      <h1>{{ store.name }}</h1>
+      <p>{{ store.address }}</p>
+      <p>{{ store.phone }}</p>
+      <ul>
+        <li v-for="(hour, index) in store.hours" :key="index">{{ hour }}</li>
+      </ul>
+      <router-link class="btn" to="/location"><span>Back to Locations</span></router-link>
+    </div>
+    <img id="cafeInteriorPic" alt="cafeInteriorPic" :src="cafeInterior" />
   </section>
   <section v-else class="storeNFSec">
     <div class="storeNF">
@@ -37,8 +40,30 @@ console.log('Selected Store:', store.value)
 </template>
 
 <style scoped>
+.storeDetailSec {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.storeDetailDiv {
+    max-width: 50%;
+    width: 50%;
+    margin: 25px 55px 25px 55px;
+}
+
+.storeDetailDiv h1 {
+    font-size: 55px;
+    font-weight: 600;
+}
+
+#cafeInteriorPic {
+    max-width: 50%;
+    width: 50%;
+}
+
 .btn {
-  width: 15%;
+  width: 40%;
   font-size: 15px;
   color: #403d39;
   background-color: #fcca46;
