@@ -73,9 +73,8 @@ const openDirections = (store) => {
         </ul>
         <section>
           <button class="btn1" @click.prevent="openDirections(selectedStore)">Directions</button>
-          <button class="btn2">
-            <router-link :to="'/location/' + selectedStore.id">View Store</router-link>
-          </button>
+
+          <router-link class="btn2" :to="'/location/' + selectedStore.id">View Store</router-link>
         </section>
       </div>
     </InfoWindow>
@@ -131,7 +130,8 @@ li {
   align-items: center;
 }
 
-button {
+button,
+.btn2 {
   font-size: 15px;
   color: #403d39;
   height: 33px;
@@ -147,6 +147,10 @@ button {
 }
 
 button:active {
+  transform: scale(0.95);
+}
+
+.btn2:active {
   transform: scale(0.95);
 }
 

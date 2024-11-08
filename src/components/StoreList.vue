@@ -45,11 +45,7 @@ export default defineComponent({
             </li>
             <section>
               <button class="btn1" @click.prevent="openDirections(store)">Directions</button>
-              <button class="btn2">
-                <router-link :to="'/location/' + store.id"  >{{
-                  store.name
-                }}</router-link>
-              </button>
+              <router-link class="btn2" :to="'/location/' + store.id">{{ store.name }}</router-link>
             </section>
           </ul>
         </a>
@@ -127,7 +123,7 @@ ul {
   margin-left: 5px;
 }
 
-button {
+button, .btn2 {
   font-size: 15px;
   color: #403d39;
   padding: 10px 15px;
@@ -142,6 +138,10 @@ button {
 }
 
 button:active {
+  transform: scale(0.95);
+}
+
+.btn2:active {
   transform: scale(0.95);
 }
 
