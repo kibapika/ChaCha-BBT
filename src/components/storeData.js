@@ -10,6 +10,10 @@ export const stores = [
       'Sun 10:00: AM - 10:00 PM'
     ],
     address: '789 Jasmine Street, Brewtown, NY 10001',
+    amenities: [
+      { name: 'hi-location-marker', label: 'Location' },
+      { name: 'bi-phone', label: 'Phone' }
+    ],
     label: {
       text: 'S1',
       fontSize: '14px',

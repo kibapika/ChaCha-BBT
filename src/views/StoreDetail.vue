@@ -18,14 +18,34 @@ console.log('Selected Store:', store.value)
   <section v-if="store" class="storeDetailSec">
     <div class="storeDetailDiv">
       <h1>{{ store.name }}</h1>
-      <p>{{ store.address }}</p>
-      <p>{{ store.phone }}</p>
+      <div class="addressPhone">
+        <a
+          :href="`https://www.google.com/maps/dir/?api=1&destination=${store.position.lat},${store.position.lng}`"
+          target="_blank"
+          class="storeAddress"
+        >
+          <v-icon class="icon" hover scale="1.5" name="hi-location-marker" /> {{ store.address }}</a
+        >
+        <a :href="'tel:' + store.phone" class="storePhone"
+          ><v-icon class="icon" hover scale="1.5" name="bi-phone" /> {{ store.phone }}</a
+        >
+      </div>
+      <h2>Store Hours:</h2>
       <ul>
         <li v-for="(hour, index) in store.hours" :key="index">{{ hour }}</li>
       </ul>
+      <h2>Ammenities:</h2>
+      <v-icon
+        v-for="(amenity, index) in amenities"
+        :key="index"
+        :class="'icon'"
+        :name="amenity.name"
+        hover
+        scale="1.5"
+      />
       <router-link class="btn" to="/location"><span>Back to Locations</span></router-link>
     </div>
-    <img id="cafeInteriorPic" alt="cafeInteriorPic" :src="cafeInterior" />
+    <img id="cafeInteriorPic" at="cafeInteriorPic" :src="cafeInterior" />
   </section>
   <section v-else class="storeNFSec">
     <div class="storeNF">
@@ -41,25 +61,44 @@ console.log('Selected Store:', store.value)
 
 <style scoped>
 .storeDetailSec {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .storeDetailDiv {
-    max-width: 50%;
-    width: 50%;
-    margin: 25px 55px 25px 55px;
+  max-width: 50%;
+  width: 50%;
+  margin: 25px 50px 25px 50px;
 }
 
 .storeDetailDiv h1 {
-    font-size: 55px;
-    font-weight: 600;
+  font-size: 55px;
+  font-weight: 600;
+}
+
+.addressPhone {
+  display: flex;
+  flex-direction: column;
+}
+
+.storeAddress {
+  font-size: 20px;
+}
+
+.storePhone {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ea591f;
+}
+
+.storePhone:hover {
+  color: #fcca46;
 }
 
 #cafeInteriorPic {
-    max-width: 50%;
-    width: 50%;
+  max-width: 50%;
+  width: 50%;
 }
 
 .btn {
@@ -109,5 +148,25 @@ console.log('Selected Store:', store.value)
   text-decoration: underline;
   font-size: 45px;
   font-weight: 500;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h2 {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+li {
+  font-size: 20px;
+  padding: 15px 5px 15px 5px;
+  border-top: rgba(204, 197, 185, 0.4) 1px solid;
+  border-bottom: rgba(204, 197, 185, 0.4) 1px solid;
 }
 </style>
