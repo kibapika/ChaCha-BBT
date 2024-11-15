@@ -11,8 +11,12 @@ export const stores = [
     ],
     address: '789 Jasmine Street, Brewtown, NY 10001',
     amenities: [
-      { name: 'hi-location-marker', label: 'Location' },
-      { name: 'bi-phone', label: 'Phone' }
+      {name:'fa-wifi', label:'Wifi'},
+      {name:'hi-gift', label:'Rewards'},
+      {name:'co-buy-me-a-coffee', label:'Mobile Pickup & Delivery'},
+      {name:'fa-chair', label:'Open Seating'},
+      {name:'fa-wheelchair', label:'Wheelchair Accessible'},
+      {name:'md-pets', label:'Pet Friendly (Seperate Section Available)'}
     ],
     label: {
       text: 'S1',
@@ -27,6 +31,13 @@ export const stores = [
     phone: '(555) 234-5678',
     hours: ['TBD'],
     address: '789 Jasmine Street, Brewtown, NY 10001',
+    amenities: [
+      {name:'fa-wifi', label:'Wifi'},
+      {name:'hi-gift', label:'Rewards'},
+      {name:'co-buy-me-a-coffee', label:'Mobile Pickup & Delivery'},
+      {name:'fa-chair', label:'Open Seating'},
+      {name:'fa-wheelchair', label:'Wheelchair Accessible'},
+    ],
     label: {
       text: 'S2',
       fontSize: '14px',
@@ -39,7 +50,13 @@ export const stores = [
     name: 'Oolong Oasis Mall',
     phone: '(555) 345-6789',
     hours: ['TBD'],
-    address: '321 Matcha Lane, Tea Ville, TX 73301',
+    address: '321 Matcha Lane, Tea Ville, NY 73301',
+    amenities: [
+      {name:'fa-wifi', label:'Wifi'},
+      {name:'hi-gift', label:'Rewards'},
+      {name:'co-buy-me-a-coffee', label:'Mobile Pickup & Delivery'},
+      {name:'fa-wheelchair', label:'Wheelchair Accessible'},
+    ],
     label: {
       text: 'S3',
       fontSize: '14px',
@@ -49,10 +66,17 @@ export const stores = [
   {
     id: 4,
     position: { lat: 40.778896, lng: -73.98513 },
-    name: 'Oolong Oasis Mall',
-    phone: '(555) 345-6789',
+    name: 'Bubble Bliss Corner',
+    phone: '(555) 678-9012',
     hours: ['TBD'],
-    address: '321 Matcha Lane, Tea Ville, TX 73301',
+    address: '101 Cha Street, New York, NY 10013',
+    amenities: [
+      {name:'fa-wifi', label:'Wifi'},
+      {name:'hi-gift', label:'Rewards'},
+      {name:'co-buy-me-a-coffee', label:'Mobile Pickup & Delivery'},
+      {name:'fa-chair', label:'Open Seating'},
+      {name:'fa-wheelchair', label:'Wheelchair Accessible'},
+    ],
     label: {
       text: 'S4',
       fontSize: '14px',
