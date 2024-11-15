@@ -35,14 +35,13 @@ console.log('Selected Store:', store.value)
         <li v-for="(hour, index) in store.hours" :key="index">{{ hour }}</li>
       </ul>
       <h2>Ammenities:</h2>
-      <v-icon
-        v-for="(amenity, index) in amenities"
-        :key="index"
-        :class="'icon'"
-        :name="amenity.name"
-        hover
-        scale="1.5"
-      />
+      <div>
+        <div v-for="(amenity, index) in store.amenities" :key="index">
+          <v-icon :class="'icon'" :name="amenity.name" hover scale="1.5" />
+          <span>{{ amenity.label }}</span>
+        </div>
+      </div>
+
       <router-link class="btn" to="/location"><span>Back to Locations</span></router-link>
     </div>
     <img id="cafeInteriorPic" at="cafeInteriorPic" :src="cafeInterior" />
