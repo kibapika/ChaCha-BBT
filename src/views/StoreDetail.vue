@@ -12,6 +12,7 @@ const store = computed(() => stores.find((store) => store.id === parseInt(storeI
 
 console.log('Stores Array:', stores)
 console.log('Selected Store:', store.value)
+console.log('img', store.value.cafeImg)
 </script>
 
 <template>
@@ -36,7 +37,7 @@ console.log('Selected Store:', store.value)
       </ul>
       <h2>Ammenities:</h2>
       <div>
-        <div v-for="(amenity, index) in store.amenities" :key="index">
+        <div class="amenities" v-for="(amenity, index) in store.amenities" :key="index">
           <v-icon :class="'icon'" :name="amenity.name" hover scale="1.5" />
           <span>{{ amenity.label }}</span>
         </div>
@@ -44,7 +45,7 @@ console.log('Selected Store:', store.value)
 
       <router-link class="btn" to="/location"><span>Back to Locations</span></router-link>
     </div>
-    <img id="cafeInteriorPic" at="cafeInteriorPic" :src="cafeInterior" />
+    <img id="cafeInteriorPic" alt="cafeInteriorPic" :src="store.cafeImg" />
   </section>
   <section v-else class="storeNFSec">
     <div class="storeNF">
@@ -105,6 +106,7 @@ console.log('Selected Store:', store.value)
   font-size: 15px;
   color: #403d39;
   background-color: #fcca46;
+  margin-top: 10px;
   padding: 10px 15px;
   display: flex;
   justify-content: center;
@@ -167,5 +169,14 @@ li {
   padding: 15px 5px 15px 5px;
   border-top: rgba(204, 197, 185, 0.4) 1px solid;
   border-bottom: rgba(204, 197, 185, 0.4) 1px solid;
+}
+
+.amenities {
+    padding-bottom: 15px;
+}
+
+.amenities span {
+    padding-left: 15px;
+    font-size: 20px;
 }
 </style>

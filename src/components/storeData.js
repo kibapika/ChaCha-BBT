@@ -1,3 +1,6 @@
+import cafeInterior from '../assets/cafeInterior.jpg'
+
+
 export const stores = [
   {
     id: 1,
@@ -18,6 +21,7 @@ export const stores = [
       {name:'fa-wheelchair', label:'Wheelchair Accessible'},
       {name:'md-pets', label:'Pet Friendly (Seperate Section Available)'}
     ],
+    cafeImg: cafeInterior,
     label: {
       text: 'S1',
       fontSize: '14px',
@@ -38,6 +42,7 @@ export const stores = [
       {name:'fa-chair', label:'Open Seating'},
       {name:'fa-wheelchair', label:'Wheelchair Accessible'},
     ],
+    cafeImg: cafeInterior,
     label: {
       text: 'S2',
       fontSize: '14px',
@@ -57,6 +62,7 @@ export const stores = [
       {name:'co-buy-me-a-coffee', label:'Mobile Pickup & Delivery'},
       {name:'fa-wheelchair', label:'Wheelchair Accessible'},
     ],
+    cafeImg: cafeInterior,
     label: {
       text: 'S3',
       fontSize: '14px',
@@ -77,6 +83,7 @@ export const stores = [
       {name:'fa-chair', label:'Open Seating'},
       {name:'fa-wheelchair', label:'Wheelchair Accessible'},
     ],
+    cafeImg: cafeInterior,
     label: {
       text: 'S4',
       fontSize: '14px',
