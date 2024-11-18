@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { stores } from '../components/storeData'
-import cafeInterior from '../assets/cafeInterior.jpg'
 
 const route = useRoute()
 const storeId = route.params.storeId

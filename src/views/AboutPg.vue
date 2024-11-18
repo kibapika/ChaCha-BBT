@@ -9,10 +9,10 @@ import tea from '../assets/tea.jpg'
       <section class="box2">
         <h1 class="title">The Story of ChaCha</h1>
         <p class="text">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, eius officia. Eaque
-          similique qui ducimus, iusto est nulla, beatae a quidem ad facilis dolores repudiandae hic
-          optio modi id quos. <br /><br />
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores temporibus modi esse quidem!
+          Chacha is a fictional bubble tea shop created for a mock website project showcasing web
+          development skills. All content, including locations, phone numbers, and details, is
+          entirely fictional and intended for demonstration purposes only. This site does not
+          represent a real business or service.
         </p>
       </section>
     </div>
