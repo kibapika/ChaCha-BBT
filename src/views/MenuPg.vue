@@ -32,7 +32,7 @@ export default {
     <h1 class="menuTitle">Menu</h1>
   </section>
   <div class="menuDiv">
-    <section>
+    <section class="menuSec">
       <div class="tabs" role="tablist">
         <button
           v-for="(tab, index) in tabs"
@@ -69,9 +69,12 @@ export default {
       <section class="menuCustomSec">
         <h1>Customization Options</h1>
         <ul>
-          <li>Sugar Levels: 0%, 25%, 50%, 75%, 100%</li>
-          <li>Ice Levels: No Ice, Less Ice, Regular Ice, Extra Ice</li>
-          <li>Milk Alternatives: Whole Milk, Skim Milk, Almond Milk, Oat Milk</li>
+          <li><strong>Sugar Levels:</strong><span> 0%, 25%, 50%, 75%, 100%</span></li>
+          <li><strong>Ice Levels:</strong><span> No Ice, Less Ice, Regular Ice, Extra Ice</span></li>
+          <li>
+            <strong>Milk Alternatives:</strong>
+            <span> Whole Milk, Skim Milk, Almond Milk, Oat Milk</span>
+          </li>
         </ul>
       </section>
     </div>
@@ -105,10 +108,16 @@ export default {
   margin-top: 15px;
 }
 
+.menuSec {
+  width: 75%;
+}
+
 .tabs {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 button {
@@ -143,7 +152,7 @@ button.active {
 }
 
 .tab-content {
-  height: 300px;
+  height: auto;
   border-radius: 25px;
   box-shadow:
     0 4px 6px -1px rgb(0 0 0 / 0.1),
@@ -157,26 +166,55 @@ button.active {
 .menuComp {
   height: 80%;
   width: 70%;
+  margin: 20px 0;
 }
 
 .menuCustom {
+  width: 75%;
   display: flex;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  justify-content: space-evenly;
+  margin: 20px 0;
+  padding: 10px;
   box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1);
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
   background-color: white;
   border-radius: 15px;
 }
 
 .menuCustomSec {
-  width: 50%;
-  height: 300px;
+  height: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  width: 45%;
+}
+
+.menuCustomSec h1 {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.menuCustomSec ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuCustomSec li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+strong {
+  font-weight: bold;
+}
+
+span {
+  color: #555;
 }
 </style>
