@@ -48,7 +48,7 @@ export default {
         </button>
       </div>
       <div class="tab-content">
-        <component :is="tabs[activeTab].component"></component>
+        <component class="menuComp" :is="tabs[activeTab].component"></component>
       </div>
     </section>
     <div class="menuCustom">
@@ -139,10 +139,10 @@ button.active {
   border: none;
   background-color: #bcbd8b;
   color: #eb5e28;
+  font-weight: bolder;
 }
 
 .tab-content {
-  margin-top: 20px;
   height: 300px;
   border-radius: 25px;
   box-shadow:
@@ -152,6 +152,11 @@ button.active {
   align-items: center;
   justify-content: center;
   background-color: white;
+}
+
+.menuComp {
+  height: 80%;
+  width: 70%;
 }
 
 .menuCustom {
