@@ -19,7 +19,9 @@ const closeMenu = () => {
   <header>
     <div class="headerDiv">
       <router-link to="/home"><h1 class="title">Cha-Cha</h1></router-link>
-      <button class="menu-button" @click="toggleMenu" aria-label="Toggle Menu">☰</button>
+      <button class="menu-button" @click="toggleMenu" aria-label="Toggle Menu">
+        <v-icon class="icon" hover scale="1.75" name="hi-solid-menu" />
+      </button>
       <nav class="navBar" v-bind:class="{ 'navBar--visible': menuVisible }">
         <router-link @click="closeMenu" to="/menu">Menu</router-link>
         <router-link @click="closeMenu" :to="{ path: '/', hash: '#about' }">About</router-link>

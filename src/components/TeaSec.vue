@@ -212,7 +212,7 @@ import milkTea from '../assets/milkTea.jpg'
 }
 
 .milkTeaBtn img {
-  width: 225px;
+  width: 24vw;
   border-radius: 1.5rem;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   transition: transform 0.3s;
