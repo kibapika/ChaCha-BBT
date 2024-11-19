@@ -11,7 +11,6 @@ const store = computed(() => stores.find((store) => store.id === parseInt(storeI
 
 console.log('Stores Array:', stores)
 console.log('Selected Store:', store.value)
-console.log('img', store.value.cafeImg)
 </script>
 
 <template>
@@ -41,7 +40,6 @@ console.log('img', store.value.cafeImg)
           <span>{{ amenity.label }}</span>
         </div>
       </div>
-
       <router-link class="btn" to="/location"><span>Back to Locations</span></router-link>
     </div>
     <img id="cafeInteriorPic" alt="cafeInteriorPic" :src="store.cafeImg" />
@@ -171,11 +169,11 @@ li {
 }
 
 .amenities {
-    padding-bottom: 15px;
+  padding-bottom: 15px;
 }
 
 .amenities span {
-    padding-left: 15px;
-    font-size: 20px;
+  padding-left: 15px;
+  font-size: 20px;
 }
 </style>

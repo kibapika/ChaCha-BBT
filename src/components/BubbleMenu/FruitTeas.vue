@@ -39,7 +39,7 @@ div {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bolder;
   text-align: center;
 }

@@ -1,38 +1,30 @@
 <script setup>
-// import { useRouter } from 'vue-router'
+import { ref } from 'vue'
 import social from './components/SocialNav.vue'
-// const router = useRouter()
 
-// const scrollToAbout = () => {
-//   const aboutSection = document.getElementById('about')
-//   if (aboutSection) {
-//     const offset = document.querySelector('header').offsetHeight
-//     window.scrollTo({
-//       top: aboutSection.offsetTop - offset,
-//       behavior: 'smooth'
-//     })
-//     router.push({ hash: '#about' })
-//   }
-// }
+const menuVisible = ref(false) // Track the visibility of the mobile menu
 
-// const redirectToAbout = () => {
-//   router.push('/#about')
-//   console.log('hello') // Navigate to the 'home' route with hash '#about'
-//   scrollToAbout() // Call the scrolling function'
-//   console.log('bye')
-// }
+// Toggle menu visibility
+const toggleMenu = () => {
+  menuVisible.value = !menuVisible.value
+}
+
+// Close the menu when a link is clicked
+const closeMenu = () => {
+  menuVisible.value = false
+}
 </script>
 
 <template>
   <header>
     <div class="headerDiv">
       <router-link to="/home"><h1 class="title">Cha-Cha</h1></router-link>
-      <nav class="navBar">
-        <router-link to="/menu">Menu</router-link>
-        <!-- <a href="#about" @click="redirectToAbout" @click.prevent="scrollToAbout">Our Story</a> -->
-        <router-link :to="{ path: '/', hash: '#about' }">About</router-link>
-        <router-link to="/location">Visit Us</router-link>
-        <router-link to="/contact">Contact</router-link>
+      <button class="menu-button" @click="toggleMenu" aria-label="Toggle Menu">☰</button>
+      <nav class="navBar" v-bind:class="{ 'navBar--visible': menuVisible }">
+        <router-link @click="closeMenu" to="/menu">Menu</router-link>
+        <router-link @click="closeMenu" :to="{ path: '/', hash: '#about' }">About</router-link>
+        <router-link @click="closeMenu" to="/location">Visit Us</router-link>
+        <router-link @click="closeMenu" to="/contact">Contact</router-link>
       </nav>
     </div>
   </header>
@@ -52,10 +44,11 @@ import social from './components/SocialNav.vue'
 header {
   display: flex;
   justify-content: center;
+  position: relative; /* Ensure header doesn't overlap */
 }
 
 .headerDiv {
-  width: 80%;
+  width: 85%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -69,14 +62,40 @@ header {
 
 .navBar {
   font-size: 1.25rem;
-  width: 35%;
+  width: 40%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
+}
+
+.navBar--visible {
+  display: flex; /* Show the menu */
+  position: absolute; /* Ensure it doesn’t push the page content */
+  top: 100%; /* Position below the header */
+  left: 0;
+  width: 100%;
+  background-color: white; /* Background for the dropdown */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+  z-index: 10; /* Ensure it stays above other content */
+}
+
+.navBar a {
+  padding: 10px;
+  text-decoration: none;
+  display: block; /* Make links block elements for better mobile touch targets */
+}
+
+.menu-button {
+  display: none; /* Hide the button on larger screens */
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 main {
-  flex-grow: 1; /* Grow to fill remaining space */
+  flex-grow: 1;
 }
 
 footer {
@@ -105,6 +124,37 @@ footer {
   header {
     height: 10%;
   }
+  footer {
+    height: 10%;
+  }
+
+  main {
+    height: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navBar {
+    display: none; /* Hide the nav links by default on mobile */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navBar--visible {
+    display: flex; /* Show the menu */
+  }
+
+  .menu-button {
+    display: block; /* Show the menu button on smaller screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    height: 10%;
+  }
+
   footer {
     height: 10%;
   }
