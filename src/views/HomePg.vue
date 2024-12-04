@@ -50,4 +50,10 @@ import homeMarquee from '../components/HomeMarquee.vue'
   text-align: center;
   color: black;
 }
+
+@media (max-width: 1024px) {
+  #hometitle {
+    font-size: 2.5rem;
+  }
+}
 </style>

@@ -60,4 +60,28 @@ import tea from '../assets/tea.jpg'
   line-height: 2;
   font-size: 25px;
 }
+
+@media (max-width: 1024px) {
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align items vertically */
+    justify-content: space-evenly; /* Center content horizontally */
+  }
+
+  #teapic {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .box2 {
+    position: relative;
+    top: 0;
+    right: 0;
+    max-width: none;
+    width: 100%;
+  }
+}
+
 </style>

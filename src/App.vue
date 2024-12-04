@@ -122,19 +122,6 @@ footer {
   font-size: 16px;
 }
 
-@media (min-width: 1024px) {
-  header {
-    height: 10%;
-  }
-  footer {
-    height: 10%;
-  }
-
-  main {
-    height: auto;
-  }
-}
-
 @media (max-width: 1024px) {
   .navBar {
     display: none; /* Hide the nav links by default on mobile */
