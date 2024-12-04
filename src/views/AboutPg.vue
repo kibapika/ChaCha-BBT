@@ -62,6 +62,12 @@ import tea from '../assets/tea.jpg'
 }
 
 @media (max-width: 1024px) {
+
+  #aboutdiv {
+    height: max-content;
+  }
+
+
   #container {
     display: flex;
     flex-direction: column;
@@ -73,6 +79,8 @@ import tea from '../assets/tea.jpg'
     position: relative;
     top: 0;
     left: 0;
+    max-width: none;
+    width: 40dvw;
   }
 
   .box2 {
