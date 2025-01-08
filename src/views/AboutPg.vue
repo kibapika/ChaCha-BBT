@@ -8,7 +8,7 @@ import tea from '../assets/tea.jpg'
       <img id="teapic" alt="teaaboutpg" :src="tea" />
       <section class="box2">
         <h1 class="title">The Story of ChaCha</h1>
-        <p class="text">
+        <p>
           Chacha is a fictional bubble tea shop created for a mock website project showcasing web
           development skills. All content, including locations, phone numbers, and details, is
           entirely fictional and intended for demonstration purposes only. This site does not
@@ -43,6 +43,7 @@ import tea from '../assets/tea.jpg'
 }
 
 .box2 {
+  margin-top: 15px;
   padding: 1rem;
   border-radius: 0.75rem;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
