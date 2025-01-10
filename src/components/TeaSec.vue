@@ -182,7 +182,7 @@ import milkTea from '../assets/milkTea.jpg'
 }
 
 #milkTeaTitle {
-  font-size: 5rem;
+  font-size: 65px;
   font-weight: bolder;
   letter-spacing: 5px;
 }
@@ -214,6 +214,7 @@ import milkTea from '../assets/milkTea.jpg'
 .milkTeaBtn img {
   width: 24vw;
   border-radius: 1.5rem;
+  border: 6px double #bcbd8b; /* Double border style */
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   transition: transform 0.3s;
 }
@@ -236,5 +237,26 @@ import milkTea from '../assets/milkTea.jpg'
   font-size: 25px;
   background-color: #bcbd8b;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+@media (max-width: 768px) {
+  .marquee-content span {
+    font-size: 5rem;
+  }
+  .milkTeaBtn img {
+    width: 40vw;
+  }
+  .teasH3 {
+    font-size: 25px;
+  }
+  #milkSec {
+    flex-direction: column;
+  }
+
+  #milkSec img {
+    width: 80vw;
+    height: 15vh;
+    object-fit: cover;
+  }
 }
 </style>
