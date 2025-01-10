@@ -2,11 +2,11 @@
 
 <template>
   <div>
-    <v-icon class="icon" hover scale="1.3" animation="float" name="bi-facebook" />
-    <v-icon class="icon" hover scale="1.3" animation="float" name="bi-twitter" />
-    <v-icon class="icon" hover scale="1.3" animation="float" name="bi-instagram" />
-    <v-icon class="icon" hover scale="1.3" animation="float" name="bi-tiktok" />
-    <v-icon class="icon" hover scale="1.3" animation="float" name="hi-mail" />
+    <v-icon class="icon" hover scale="1.75" animation="float" name="bi-facebook" />
+    <v-icon class="icon" hover scale="1.75" animation="float" name="bi-twitter" />
+    <v-icon class="icon" hover scale="1.75" animation="float" name="bi-instagram" />
+    <v-icon class="icon" hover scale="1.75" animation="float" name="bi-tiktok" />
+    <v-icon class="icon" hover scale="1.75" animation="float" name="hi-mail" />
   </div>
 </template>
 

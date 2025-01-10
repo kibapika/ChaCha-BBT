@@ -55,6 +55,8 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 10px; /* Add padding for better spacing */
+
 }
 
 .title {
@@ -94,6 +96,7 @@ header {
   border: none;
   font-size: 2rem;
   cursor: pointer;
+  margin-left: auto; /* Align button to the right */
 }
 
 main {
@@ -109,11 +112,12 @@ footer {
 }
 
 .social {
-  width: 25dvw;
+  width: 40dvw;
   display: flex;
   flex-direction: row;
   place-items: center;
   justify-content: space-around;
+  align-items: center;
   padding: 2px;
 }
 
@@ -141,15 +145,16 @@ footer {
 
 @media (min-width: 1024px) {
   header {
-    height: 10%;
+    height: 12vh;
   }
 
   footer {
-    height: 10%;
+    height: 12vh;
   }
 
   main {
     height: auto;
   }
 }
+
 </style>
