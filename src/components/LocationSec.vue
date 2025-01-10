@@ -28,6 +28,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+  border-radius: 15px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Add subtle shadow */
 }
 
 h1 {
@@ -35,6 +39,9 @@ h1 {
   font-weight: bolder;
   font-size: 50px;
   -webkit-text-stroke: 2px black;
+  text-shadow:
+    0 0 10px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 .router-link {
@@ -48,12 +55,39 @@ h1 {
   width: 22%;
   height: 20%;
   border-radius: 10px;
-  background-color: #c49f82;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  background: linear-gradient(135deg, #c49f82, #eacda3);
+  transition:
+    transform 0.3s,
+    background-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .router-link:hover {
   transform: scale(1.03);
   color: #fffcf2;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .router-link {
+    width: 50%;
+    height: 15%;
+    font-size: 16px;
+  }
+
+  .locationSecInfo {
+    width: 90%;
+    height: 90%;
+    align-items: center;
+  }
+
+  .locationSecPic {
+    height: 50dvh;
+  }
 }
 </style>
