@@ -8,13 +8,15 @@ import homeMarquee from '../components/HomeMarquee.vue'
 
 <template>
   <section class="homepage-video">
-    <video width="100%" muted loop autoplay>
+    <video width="100%" muted loop autoplay preload="auto">
       <source :src="video" type="video/mp4" />
+      Your browser does not support the video. Please visit our site on a modern browser to view
+      this content.
     </video>
     <h1 class="text-over-video" id="hometitle">Welcome to ChaCha</h1>
   </section>
   <homeMarquee
-    updatedMsg="[Breaking News] Soft Opening Day June 24 , 2024 ~ For more info, check out later this month! Thank you for all the support and can't wait to see everyone~"
+    updatedMsg="[Breaking News] Soft Opening Day Jan 24 , 2025 ~ For more info, check out later this month! Thank you for all the support and can't wait to see everyone~"
   />
   <section id="about">
     <aboutPg />
@@ -30,6 +32,7 @@ import homeMarquee from '../components/HomeMarquee.vue'
   font-weight: 700;
   color: white;
   -webkit-text-stroke: 2px black;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 .homepage-video,
@@ -44,9 +47,10 @@ import homeMarquee from '../components/HomeMarquee.vue'
 
 .text-over-video {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -60%);
+  padding: 0 10px;
   text-align: center;
   color: black;
 }

@@ -30,6 +30,8 @@ defineProps({
 .wrapper {
   max-width: 100%;
   overflow: hidden;
+  background-color: rgba(196, 159, 130, 0.75);
+  padding: 10px 0;
 }
 
 .marquee {
@@ -37,13 +39,15 @@ defineProps({
   overflow: hidden;
   display: inline-block;
   animation: marquee 20s linear infinite;
-  margin-top: 15px;
+  padding-top: 5px;
 }
 
 .marquee p {
   display: inline-block;
   font-size: 23px;
   letter-spacing: 1px;
+  color: #fffcf2;
+  font-weight: 500;
 }
 
 @keyframes marquee {
@@ -54,4 +58,5 @@ defineProps({
     transform: translate3d(-50%, 0, 0);
   }
 }
+
 </style>
