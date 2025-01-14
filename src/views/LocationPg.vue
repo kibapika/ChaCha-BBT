@@ -107,4 +107,13 @@ const handleStoreSelected = (store) => {
   display: flex;
   flex-direction: row-reverse;
 }
+
+@media (max-width: 768px) {
+  .menuTitle {
+    justify-content: center;
+  }
+  .googleMaps {
+    flex-direction: column;
+  }
+}
 </style>

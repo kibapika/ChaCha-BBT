@@ -152,4 +152,10 @@ button:active {
 .btn2 {
   background: #9fb1bc;
 }
+
+@media (max-width: 768px) {
+  .storeSec {
+    width: 100%;
+  }
+}
 </style>
