@@ -70,7 +70,9 @@ export default {
         <h1>Customization Options</h1>
         <ul>
           <li><strong>Sugar Levels:</strong><span> 0%, 25%, 50%, 75%, 100%</span></li>
-          <li><strong>Ice Levels:</strong><span> No Ice, Less Ice, Regular Ice, Extra Ice</span></li>
+          <li>
+            <strong>Ice Levels:</strong><span> No Ice, Less Ice, Regular Ice, Extra Ice</span>
+          </li>
           <li>
             <strong>Milk Alternatives:</strong>
             <span> Whole Milk, Skim Milk, Almond Milk, Oat Milk</span>
@@ -137,7 +139,8 @@ button {
 }
 
 button:hover {
-  box-shadow: var(--hover-shadows);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f3f4ed;
 }
 
 button:active {
@@ -149,14 +152,14 @@ button.active {
   background-color: #bcbd8b;
   color: #eb5e28;
   font-weight: bolder;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 .tab-content {
   height: auto;
   border-radius: 25px;
-  box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,9 +179,7 @@ button.active {
   justify-content: space-evenly;
   margin: 20px 0;
   padding: 10px;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   background-color: white;
   border-radius: 15px;
 }
@@ -216,5 +217,35 @@ strong {
 
 span {
   color: #555;
+}
+
+@media (max-width: 768px) {
+  .menuSec {
+    width: 90%;
+  }
+
+  .menuDiv {
+    margin-top: 10px;
+  }
+
+  .tabs {
+    margin-bottom: 15px;
+  }
+
+  button {
+    width: 100%;
+    height: auto;
+  }
+
+  .menuCustom {
+    width: 90%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .menuCustomSec {
+    width: 90%;
+    margin-bottom: 20px;
+  }
 }
 </style>
