@@ -112,7 +112,7 @@ footer {
 }
 
 .social {
-  width: 40dvw;
+  width: 50dvw;
   display: flex;
   flex-direction: row;
   place-items: center;
@@ -124,6 +124,7 @@ footer {
 .footer-privacy {
   line-height: 2;
   font-size: 16px;
+  text-align: center;
 }
 
 @media (max-width: 1024px) {
@@ -157,4 +158,9 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  .social {
+    width: 70dvw;
+  }
+}
 </style>
