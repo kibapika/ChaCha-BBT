@@ -293,4 +293,23 @@ button:active {
   font-weight: bold;
   color: red;
 }
+
+@media (max-width: 768px) {
+ .contactFormTitle, form{
+  width: 96%;
+ }
+
+ .contactFormTitle h1, p {
+  text-align: center;
+ }
+
+ .contactFormTitle p {
+  margin-bottom: 10px;
+ }
+
+ input {
+  font-size: 18px;
+ }
+
+}
 </style>

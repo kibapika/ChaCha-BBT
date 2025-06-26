@@ -144,4 +144,15 @@ export default {
   margin-top: 10px;
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .inputDiv{
+    height: 40px;
+  }
+
+  #captchaInput {
+    height: 30px;
+    font-size: 18px;
+  }
+}
 </style>

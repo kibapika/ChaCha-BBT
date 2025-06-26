@@ -43,4 +43,19 @@ import ContactForm from '../components/ContactForm.vue'
     border-radius: 5px;
     background-color: #ccc5b9;
 }
+
+@media (max-width: 768px) {
+  .contactTitle{
+    justify-content: center;
+  }
+
+  .contactBox {
+    flex-direction: column;
+    border-radius: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 </style>
