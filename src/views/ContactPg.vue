@@ -30,32 +30,26 @@ import ContactForm from '../components/ContactForm.vue'
 }
 
 .contactBox {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
-    width: 100%;
-    border-radius: 5px;
-    background-color: #ccc5b9;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px 20px 10px 20px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #ccc5b9;
 }
 
 @media (max-width: 768px) {
-  .contactTitle{
+  .contactTitle {
     justify-content: center;
   }
 
   .contactBox {
     flex-direction: column;
     border-radius: 0px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: auto;
   }
 }
 </style>

@@ -165,4 +165,10 @@ button:active {
 a:hover {
   color: #403d39;
 }
+
+@media (max-width: 768px) {
+.btn1, .btn2 {
+  padding: 5px 15px;
+}
+}
 </style>
