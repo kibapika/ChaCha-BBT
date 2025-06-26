@@ -176,4 +176,28 @@ li {
   padding-left: 15px;
   font-size: 20px;
 }
+
+@media (max-width: 768px) {
+  .storeDetailSec {
+    flex-direction: column-reverse;
+  }
+
+  #cafeInteriorPic {
+    max-width: 100%;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .storeDetailDiv {
+    max-width: 85%;
+    width: 85%;
+    margin: 25px 35px 25px 35px;
+  }
+
+  .btn {
+    width: 50%;
+  }
+}
 </style>
