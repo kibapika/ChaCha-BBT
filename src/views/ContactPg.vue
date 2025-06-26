@@ -35,8 +35,12 @@ import ContactForm from '../components/ContactForm.vue'
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #ccc5b9;
 }
 </style>
