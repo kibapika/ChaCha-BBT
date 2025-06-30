@@ -5,8 +5,8 @@ Interactive bubble tea website built with <a href="https://vuejs.org/">Vue</a> a
 </p>
 
 ### 🛠️ Tech Stack
--**Vue 3**
--**Vue Router**
--**@unhead/vue**
--**vue3-google-map**
--**oh-vue-icons**
+  - **Vue 3**
+  -  **Vue Router**
+  -  **@unhead/vue**
+  -  **vue3-google-map**
+  -  **oh-vue-icons**
