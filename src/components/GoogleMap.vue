@@ -8,6 +8,8 @@ const props = defineProps({
   selectedStore: Object
 })
 
+const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+
 // Local state to manage the map's center position
 const mapCenter = ref({ lat: 40.7458, lng: -73.985 })
 
@@ -39,7 +41,7 @@ const openDirections = (store) => {
 
 <template>
   <GoogleMap
-    api-key="AIzaSyDZlnFNPmm6Ear2-Iot0wqb6htn3s_bZ7c"
+    :api-key="apiKey"
     style="width: 100%; height: 500px"
     class="googleMap"
     :center="mapCenter"
@@ -167,8 +169,9 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-.btn1, .btn2 {
-  padding: 5px 15px;
-}
+  .btn1,
+  .btn2 {
+    padding: 5px 15px;
+  }
 }
 </style>
