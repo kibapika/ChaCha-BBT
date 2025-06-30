@@ -8,10 +8,14 @@
 Interactive bubble tea website built with <a href="https://vuejs.org/">Vue</a> and hosted by <a href="https://www.vercel.com/">Vercel</a>.
 </p>
 
-<div align="center" style="display:flex; flex-direction:column; align-items: center">
-<span>Mobile Ver.</span>
-<img alt="video2" src="src/assets/mobile.mov" width="225">
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <span>Mobile Ver.</span>
+  <video width="225" controls>
+    <source src="src/assets/mobile.mov" type="video/quicktime">
+    Your browser does not support the video tag.
+  </video>
 </div>
+
 
 ### 🛠️ Tech Stack
   - **Vue 3**
